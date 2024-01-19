@@ -6,7 +6,7 @@ on:
 
 jobs:
   check-labels-on-issues:
-    uses: Automattic/dangermattic/.github/workflows/reusable-check-labels-on-issues.yml
+    uses: Automattic/dangermattic/.github/workflows/reusable-check-labels-on-issues.yml@trunk
     with:
       label-error-message: "Test custom error messsage"
     secrets:
