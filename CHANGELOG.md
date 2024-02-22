@@ -1,6 +1,27 @@
 <!--
 Contains editorialized release notes. Raw release notes should go into `RELEASE-NOTES.txt`.
 -->
+## 17.4
+We're excited to offer support for third-party Passkey providers. This update is designed to provide WordPress.com users with more flexibility and convenience in how they manage their account's security. Get ready to say goodbye to password fatigue and hello to a smoother, secure login experience!
+
+## 17.3
+We've enhanced the shipping label creation flow to ensure a smoother and more intuitive experience. This improvement aims to streamline your order fulfillment process, making it faster and more efficient. Please continue sending us feedback – we are listening!
+
+## 17.2
+This version includes optimizations for speed and reliability. We are committed to continuously improving the app, making managing your online store more efficient and hassle-free.
+
+## 17.1
+This release focuses on bug fixes and improvements to help you get your business started. Keep your feedback rolling in; it helps us figure out what to work on next.
+
+## 17.0
+Get ready for a smoother experience with our latest update! We've ironed out the pesky bug that kept gift cards from showing up in the 'totals' section during order creation and editing. Managing your sales with our WooCommerce app is now more seamless than ever. Update now and enjoy the hassle-free enhancements!
+
+## 16.9
+Fresh out of the oven! Our latest WooCommerce app update brings you a sleeker shopping cart experience. We've handily relocated the order creation to the bottom of your screen for easy thumb access, giving you more room to navigate. Plus, we've streamlined your workflow by detaching the order editing from the creation process. Get ready for a tidier, more efficient way to manage your sales. Tap "Update" and feel the difference!
+
+## 16.8
+We've polished your WooCommerce app experience! Check out the sleek new design for the deposit summary on the payments screen. Say goodbye to crashes after resetting your selected site, and enjoy a smoother store switching process right after you create a new store. Plus, managing custom amounts is now a breeze with our full-screen feature. Update now for a more seamless and stable business management journey!
+
 ## 16.7
 In our latest update, we've fine-tuned the In Person Payments onboarding flow for a more seamless and intuitive experience. Additionally, we've addressed various fixes to enhance the stability and performance of animations. Update now to enjoy a smoother and more reliable WooCommerce experience! 
 

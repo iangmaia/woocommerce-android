@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Translation-Revision-Date: 2023-12-13 09:54:04+0000
+Translation-Revision-Date: 2024-02-14 09:54:04+0000
 Plural-Forms: nplurals=2; plural=n > 1;
 Generator: GlotPress/2.4.0-alpha
 Language: id
 -->
 <resources>
+    <string name="see_report">Lihat Laporan</string>
+    <string name="blaze_campaign_edit_ad_destination_site_url_option">Beranda situs</string>
+    <string name="blaze_campaign_edit_ad_destination_product_url_option">URL produk</string>
+    <string name="blaze_campaign_edit_ad_destination_parameters_property_title">Parameter URL</string>
+    <string name="blaze_campaign_edit_ad_destination_url_property_title">URL Tujuan</string>
+    <string name="blaze_campaign_edit_ad_destination_empty_parameters_message">Masukkan secara manual</string>
+    <string name="blaze_campaign_creation_location_search_failed_message">Lokasi tidak ditemukan.\nCoba lagi.</string>
+    <string name="blaze_campaign_creation_location_search_message">Mulai ketik negara, provinsi, atau kota untuk melihat pilihan yang tersedia</string>
+    <string name="blaze_campaign_payment_summary_terms_and_conditions">Dengan mengeklik \"Kirim kampanye\", Anda menyetujui &lt;a href=\'termsOfService\'&gt;&lt;u&gt;Ketentuan Layanan&lt;/u&gt;&lt;/a&gt; dan &lt;a href=\'advertisingPolicy\'&gt;&lt;u&gt;Kebijakan Iklan&lt;/u&gt;&lt;/a&gt; serta menyepakati metode pembayaran untuk penagihan sesuai anggaran dan durasi yang dipilih. &lt;a href=\'learnMore\'&gt;&lt;u&gt;Baca selengkapnya&lt;/u&gt;&lt;/a&gt; tentang cara kerja anggaran dan pembayaran untuk Pos Dipromosikan.</string>
+    <string name="blaze_campaign_payment_summary_submit_campaign">Kirim kampanye</string>
+    <string name="blaze_campaign_payment_summary_error_loading_payment_methods">Pemuatan metode pembayaran gagal, coba lagi dengan klik di sini!</string>
+    <string name="blaze_campaign_payment_summary_add_payment_method">Tambahkan metode pembayaran</string>
+    <string name="blaze_campaign_payment_summary_loading_payment_methods">Memuat metode pembayaran</string>
+    <string name="blaze_campaign_payment_summary_total_budget">Total</string>
+    <string name="blaze_campaign_payment_summary_campaign_budget">Kampanye Blaze</string>
+    <string name="blaze_campaign_payment_summary_totals">Total pembayaran</string>
+    <string name="blaze_campaign_payment_summary_title">Pembayaran</string>
+    <string name="blaze_campaign_preview_target_location_search_hint">Cari lokasi</string>
+    <string name="card_reader_payment_receipt_can_not_be_stored">Tidak dapat menyimpan tanda terima</string>
+    <string name="card_reader_payment_receipt_can_not_be_downloaded">Tidak dapat mengunduh tanda terima</string>
+    <string name="card_reader_payment_email_client_not_found">Tidak dapat mendeteksi aplikasi yang dapat digunakan untuk membagikan tanda terima</string>
+    <string name="receipt_fetching_error">Maaf, kami tidak dapat memuat tanda terima untuk pesanan ini</string>
+    <string name="blaze_campaign_edit_ad_suggested_by_ai">Disarankan oleh AI</string>
+    <string name="blaze_campaign_edit_ad_characters_remaining">%d karakter tersisa</string>
+    <string name="blaze_campaign_edit_ad_change_description_title">Deskripsi</string>
+    <string name="blaze_campaign_edit_ad_change_tagline_title">Slogan</string>
+    <string name="blaze_campaign_edit_ad_change_image_button">Ganti gambar</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_apply_button">Terapkan</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_starts">Mulai</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_duration">%1$s hari</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_title">Tentukan durasi</string>
+    <string name="blaze_campaign_budget_impressions_info">Tayangan menunjukkan frekuensi iklan ditampilkan kepada calon pembeli.\n\n\n        Meskipun jumlah persisnya tidak dapat dijamin karena fluktuasi lalu lintas online dan perilaku pengguna, kami berupaya agar tayangan aktual iklan Anda sedekat mungkin dengan jumlah yang Anda targetkan.\n\n\n        Jangan lupa, tayangan berhubungan dengan visibilitas, bukan tindakan yang dilakukan pembaca.</string>
+    <string name="blaze_campaign_budget_impressions_done_button">Selesai</string>
+    <string name="blaze_campaign_budget_impressions_title">Tayangan</string>
+    <string name="blaze_campaign_budget_update_button">Perbarui</string>
+    <string name="blaze_campaign_budget_edit_duration_button">Edit</string>
+    <string name="blaze_campaign_budget_duration_section_title">Durasi</string>
+    <string name="blaze_campaign_budget_reach_forecast">Estimasi orang yang dijangkau per hari</string>
+    <string name="blaze_campaign_budget_daily_spend">%1$s harian</string>
+    <string name="blaze_campaign_budget_days_duration">selama %1$s hari</string>
+    <string name="blaze_campaign_budget_total_spend">Total pengeluaran</string>
+    <string name="blaze_campaign_budget_subtitle">Berapa banyak dana yang ingin Anda keluarkan untuk kampanye promosi produk?</string>
+    <string name="blaze_campaign_budget_toolbar_title">Tentukan anggaran</string>
+    <string name="blaze_campaign_preview_target_default_value">Semua</string>
+    <string name="blaze_campaign_preview_days_duration">%1$s hari sejak %2$s</string>
+    <string name="product_creation_survey_button_dont_show_again">Jangan Tampilkan Lagi</string>
+    <string name="product_creation_survey_button_remind_me_later">Ingatkan Saya Nanti</string>
+    <string name="product_creation_survey_description">Boleh minta waktunya sebentar? Bantu kami memperbaiki fitur berbantuan AI dengan feedback cepat.</string>
+    <string name="blaze_campaign_preview_details_confirm_details_button">Konfirmasi Detail</string>
+    <string name="blaze_campaign_preview_details_destination_url">Tujuan iklan</string>
+    <string name="blaze_campaign_preview_details_interests">Minat</string>
+    <string name="blaze_campaign_preview_details_location">Lokasi</string>
+    <string name="blaze_campaign_preview_details_devices">Perangkat</string>
+    <string name="blaze_campaign_preview_details_language">Bahasa</string>
+    <string name="blaze_campaign_preview_details_budget">Anggaran</string>
+    <string name="blaze_campaign_preview_details_section_title">Detail</string>
+    <string name="blaze_campaign_preview_shop_now_button">Belanja sekarang</string>
+    <string name="blaze_campaign_preview_edit_ad">Edit iklan</string>
+    <string name="blaze_campaign_screen_fragment_title">Pratinjau</string>
+    <string name="disabled">Non-aktif</string>
+    <string name="order_configuration_product_selection_control">Pilihan produk</string>
+    <string name="order_configuration_product_selection">Pilih produk %s</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_5">&lt;b&gt;Luncurkan:&lt;/b&gt; Pantau progres dan keberhasilan promosi Anda.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_4">&lt;b&gt;Tinjau cepat:&lt;/b&gt; Kirimkan iklan untuk pemeriksaan cepat oleh moderator.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_3">&lt;b&gt;Tetapkan anggaran:&lt;/b&gt; Tetapkan biaya dan durasi kampanye.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_2">&lt;b&gt;Sesuaikan sasaran:&lt;/b&gt; Pilih audiens berdasarkan lokasi atau minat, dan lihat potensi jangkauannya.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_1">&lt;b&gt;Pilih produk:&lt;/b&gt; Pilih produk yang ingin dipromosikan dengan Blaze.</string>
+    <string name="scan_to_update_inventory_manage_stock">Kelola Stok</string>
+    <string name="scan_to_update_inventory_stock_not_managed">Stok tidak dikelola</string>
+    <string name="blaze_campaign_creation_new_intro_learn_more">Ketahui cara kerja Blaze</string>
+    <string name="blaze_campaign_creation_new_intro_start_button">Buat kampanye Anda</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_subtitle">Jutaan situs dalam jaringan WordPress.com dan Tumblr jadi ruang iklan Anda.</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_title">Jangkau audiens yang besar</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_subtitle">\"Berkat alat kami, pembeli yang tertarik dengan produk Anda bisa lebih mudah menemukannya.\"</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_title">Seluruh dunia dalam jangkauan</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_subtitle">Pasang iklan dalam hitungan menit — tanpa perlu jadi ahli atau banyak biaya, dari $5 USD saja</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_title">Pasang praktis, hasil strategis</string>
+    <string name="blaze_campaign_creation_new_intro_description">Menghadirkan proses penyiapan iklan yang cepat nan ringkas, alat kami membantu para penjual memaksimalkan pengunjung situsnya.</string>
+    <string name="blaze_campaign_creation_product_selector_cta_button">Promosikan</string>
+    <string name="blaze_campaign_creation_product_selector_title">Siap mempromosikan</string>
+    <string name="blaze_campaign_creation_new_intro_title">Tampilkan produk ke jutaan pasang mata</string>
+    <string name="theme_preview_activate_theme_button_settings">Pakai %1$s</string>
+    <string name="theme_preview_activate_theme_button_store_creation">Mulai dengan %1$s</string>
+    <string name="store_creation_installation_async_dialog_switch_store">Beralih Toko</string>
+    <string name="store_creation_installation_async_dialog_message">Ingin mulai mengatur sekarang?</string>
+    <string name="store_creation_installation_async_dialog_title">Toko baru Anda sudah siap</string>
+    <string name="card_reader_hub_deposit_funds_deposits_title">DEPOSIT TERAKHIR</string>
+    <string name="order_creation_expand_collapse_order_totals">Buka tutup rincian total pesanan</string>
+    <string name="order_creation_collect_payment_button">Terima Pembayaran</string>
+    <string name="order_creation_gift_card_text_error">Kode harus dalam format XXXX-XXXX-XXXX-XXXX</string>
+    <string name="order_creation_gift_card_text_field_hint">Masukkan kode</string>
+    <string name="order_creation_coupon_button">Kupon</string>
+    <string name="theme_picker_error_message">Gagal memuat tema.</string>
+    <string name="configuration_complete">Konfigurasi selesai</string>
+    <string name="scan_to_update_inventory_undo_snackbar">Perbarui Jumlah yang Dibatalkan</string>
+    <string name="theme_picker_loading_current_theme_failed">Tidak dapat memuat tema Anda saat ini</string>
+    <string name="theme_preview_type_desktop">Desktop</string>
+    <string name="theme_preview_type_tablet">Tablet</string>
+    <string name="theme_preview_type_mobile">Seluler</string>
+    <string name="theme_picker_carousel_error_placeholder_message_cta">ketuk di sini</string>
+    <string name="theme_picker_carousel_error_placeholder_message">Maaf, sepertinya ada masalah saat memuat templat. Mohon %1$s untuk demo langsung.</string>
+    <string name="theme_picker_carousel_info_item_description_settings">Temukan tema ideal Anda di Toko Tema WooCommerce.</string>
+    <string name="theme_picker_current_theme_title">Tema saat ini</string>
+    <string name="theme_picker_settings_title">Coba tampilan baru</string>
+    <string name="product_creation_survey_button_open">Mulai Survei</string>
+    <string name="product_creation_survey_title">Kami menghargai masukan Anda!</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">Mengaktifkan Pembayaran Langsung memungkinkan pelanggan membayar pesanan online saat pesanan diterima dengan uang tunai atau kartu.\n\nPesanan dapat dibuat secara manual tanpa mengaktifkan fitur ini.</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">Apakah Anda ingin menambahkan fitur Pembayaran Langsung saat checkout di situs web?</string>
+    <string name="card_reader_onboarding_contact_us">Butuh bantuan? &lt;a href=\'\'&gt;Hubungi kami&lt;/a&gt;</string>
+    <string name="order_refunds_refund_custom_amount">Kembalikan Dana Sebesar Jumlah Kustom</string>
+    <string name="order_refunds_custom_amount_refund">Pengembalian dana sebesar jumlah kustom</string>
+    <string name="barcode_scanning_scan_product_barcode_label">Pindai Barcode Produk</string>
+    <string name="order_creation_add_gift_card">Tambahkan Kartu Hadiah</string>
     <string name="scan_to_update_inventory_product_label">Produk</string>
     <string name="scan_to_update_inventory_quantity_label">Jumlah</string>
     <string name="scan_to_update_inventory_original_quantity_label">Jumlah awal</string>
@@ -36,10 +149,7 @@ Language: id
     <string name="custom_amounts_bottom_sheet_heading">Bagaimana Anda ingin menambahkan jumlah kustom?</string>
     <string name="custom_amounts_percentage_label">Persentase dari total pesanan (%1$s)</string>
     <string name="custom_amounts_delete_custom_amount">Hapus jumlah kustom</string>
-    <string name="store_creation_use_theme_button">Memulai dengan tema ini</string>
     <string name="theme_activated_successfully">Tema berhasil diaktifkan</string>
-    <string name="theme_preview_theme_name">Tema: %1$s</string>
-    <string name="theme_preview_activate_theme_button">Gunakan tema ini</string>
     <string name="theme_preview_bottom_sheet_home_section">Beranda</string>
     <string name="theme_preview_bottom_sheet_pages_subtitle">Ketuk untuk melihat</string>
     <string name="theme_preview_bottom_sheet_pages_title">Halaman dengan templat ini</string>
@@ -83,7 +193,7 @@ Language: id
     <string name="configuration_quantity_between"> antara %1$s dan %2$s item </string>
     <string name="configuration_quantity_item_plural">%d item</string>
     <string name="configuration_quantity_item">%d item</string>
-    <string name="order_configuration_change_product_quantity">Ubah jumlah produk dari %1$f menjadi %2$f</string>
+    <string name="order_configuration_change_product_quantity">Ubah jumlah produk dari %1$.2f menjadi %2$.2f</string>
     <string name="save_configuration">Simpan konfigurasi</string>
     <string name="product_configuration_title">Konfigurasi</string>
     <string name="default_product_title">Produk %s</string>
@@ -118,12 +228,7 @@ Language: id
     <string name="card_reader_hub_deposit_summary_collapse_expand_content_description">Ciutkan/perluas ringkasan deposit</string>
     <string name="card_reader_hub_deposit_summary_learn_more">Baca selengkapnya tentang kapan Anda akan menerima dana</string>
     <string name="card_reader_hub_deposit_summary_available_deposit_time_monthly">Deposit dana yang tersedia dilakukan secara otomatis tiap bulan pada %s.</string>
-    <string name="card_reader_hub_deposit_summary_last">Terakhir</string>
-    <string name="card_reader_hub_deposit_summary_next">Berikutnya</string>
-    <string name="card_reader_hub_deposit_funds_deposits_title">Deposit</string>
     <string name="card_reader_hub_deposit_summary_funds_available_after_one">Dana akan tersedia setelah tertunda selama %d hari.</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_one">%d deposit</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_plural">%d deposit</string>
     <string name="card_reader_hub_deposit_summary_pending_funds">Dana yang tertunda</string>
     <string name="card_reader_hub_deposit_summary_available_funds">Dana yang tersedia</string>
     <string name="order_creation_payment_tax_label">Pajak</string>
@@ -1114,8 +1219,6 @@ Language: id
     <string name="login_site_picker_try_another_address">Coba alamat lainnya</string>
     <string name="card_reader_onboarding_cash_on_delivery_enable_failure">Gagal mengaktifkan bayar di tempat. Silakan coba lagi nanti.</string>
     <string name="card_reader_onboarding_cash_on_delivery_disabled_button">Aktifkan Pembayaran Langsung</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">Dengan pilihan \"Pembayaran Langsung\" saat checkout, Anda dapat menerima pembayaran kartu atau tunai saat pengambilan atau penerimaan barang.</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">Tambahkan Pembayaran Langsung pada proses checkout Anda</string>
     <string name="card_reader_connect_learn_more">&lt;a href=\'\'&gt;Pelajari selengkapnya&lt;/a&gt; tentang Pembayaran Langsung</string>
     <string name="login_site_picker_new_to_woo">Baru menggunakan WooCommerce</string>
     <string name="site_discovery_postlogin_failure">Terjadi kegagalan, silakan hubungi dukungan</string>
@@ -1876,7 +1979,6 @@ Language: id
     <string name="variable_product_attributes">Atribut variasi</string>
     <string name="card_reader_detail_not_connected_third_hint_label">Aktifkan bluetooth perangkat seluler</string>
     <string name="card_reader_refetching_order_failed">Terjadi error saat mengambil pesanan. Status pesanan pada aplikasi mungkin telah usang.</string>
-    <string name="card_reader_payment_email_client_not_found">Tidak dapat mendeteksi aplikasi klien email Anda</string>
     <string name="card_reader_payment_receipt_email_subject">Tanda terima Anda dari %s</string>
     <string name="card_reader_payment_fetch_order_loading_payment_state">Menyegarkan pesanan</string>
     <string name="card_reader_payment_fetch_order_loading_header">Memperbarui status aplikasi</string>

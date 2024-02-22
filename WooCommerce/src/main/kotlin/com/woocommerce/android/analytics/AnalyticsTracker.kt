@@ -152,6 +152,7 @@ class AnalyticsTracker private constructor(
         const val KEY_FROM = "from"
         const val KEY_HAS_UNFULFILLED_ORDERS = "has_unfulfilled_orders"
         const val KEY_ID = "id"
+        const val KEY_ITEM_STOCK_MANAGED = "item_stock_managed"
         const val KEY_ORDER_ID = "order_id"
         const val KEY_PRODUCT_ID = "product_id"
         const val KEY_PRODUCT_COUNT = "product_count"
@@ -193,6 +194,8 @@ class AnalyticsTracker private constructor(
         const val KEY_SOFTWARE_UPDATE_TYPE = "software_update_type"
         const val KEY_SUBJECT = "subject"
         const val KEY_DATE_RANGE = "date_range"
+        const val KEY_DATE = "date"
+        const val KEY_GRANULARITY = "granularity"
         const val KEY_SOURCE = "source"
         const val KEY_CUSTOM_FIELDS_COUNT = "custom_fields_count"
         const val KEY_CUSTOM_FIELDS_SIZE = "custom_fields_size"
@@ -249,6 +252,7 @@ class AnalyticsTracker private constructor(
         const val VALUE_SUPPORT = "support"
         const val VALUE_WP_COM = "wp_com"
         const val VALUE_NO_WP_COM = "no_wp_com"
+        const val VALUE_PREVIOUS_PERIOD = "previous_period"
 
         const val KEY_FLOW = "flow"
         const val KEY_HAS_DIFFERENT_SHIPPING_DETAILS = "has_different_shipping_details"
@@ -257,6 +261,8 @@ class AnalyticsTracker private constructor(
         const val KEY_HAS_SHIPPING_METHOD = "has_shipping_method"
         const val KEY_CUSTOM_AMOUNTS_COUNT = "custom_amounts_Count"
         const val KEY_CUSTOM_AMOUNT_TAX_STATUS = "tax_status"
+        const val KEY_EXPANDED = "expanded"
+
         const val VALUE_CUSTOM_AMOUNT_TAX_STATUS_TAXABLE = "taxable"
         const val VALUE_CUSTOM_AMOUNT_TAX_STATUS_NONE = "none"
         const val VALUE_FLOW_CREATION = "creation"
@@ -283,9 +289,15 @@ class AnalyticsTracker private constructor(
         const val KEY_TIME_ELAPSED_SINCE_CARD_COLLECT_PAYMENT_IN_MILLIS = "milliseconds_since_card_collect_payment_flow"
 
         const val KEY_COUPONS_COUNT = "coupons_count"
+        const val KEY_USE_GIFT_CARD = "use_gift_card"
+        const val KEY_IS_GIFT_CARD_REMOVED = "removed"
 
         const val KEY_WAS_ECOMMERCE_TRIAL = "was_ecommerce_trial"
         const val KEY_PLAN_PRODUCT_SLUG = "plan_product_slug"
+
+        const val KEY_PERIOD = "period"
+        const val KEY_REPORT = "report"
+        const val KEY_COMPARE = "compare"
 
         enum class OrderNoteType(val value: String) {
             CUSTOMER("customer"),
@@ -332,6 +344,7 @@ class AnalyticsTracker private constructor(
         const val VALUE_CARD_READER_TYPE_BUILT_IN = "built_in"
 
         const val VALUE_ORDER_PAYMENTS_FLOW = "order_payment"
+        const val VALUE_ORDER_CREATION_PAYMENTS_FLOW = "creation"
         const val VALUE_SCAN_TO_PAY_PAYMENT_FLOW = "scan_to_pay"
         const val VALUE_TTP_TRY_PAYMENT_FLOW = "tap_to_pay_try_a_payment"
 

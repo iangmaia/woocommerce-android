@@ -48,6 +48,7 @@ import com.woocommerce.android.ui.blaze.BlazeUrlsHelper.BlazeFlowSource
 import com.woocommerce.android.ui.blaze.MyStoreBlazeView
 import com.woocommerce.android.ui.blaze.MyStoreBlazeViewModel
 import com.woocommerce.android.ui.blaze.MyStoreBlazeViewModel.MyStoreBlazeCampaignState
+import com.woocommerce.android.ui.blaze.creation.BlazeCampaignCreationDispatcher
 import com.woocommerce.android.ui.compose.theme.WooThemeWithBackground
 import com.woocommerce.android.ui.feedback.SurveyType
 import com.woocommerce.android.ui.jitm.JitmFragment
@@ -68,6 +69,7 @@ import com.woocommerce.android.ui.mystore.MyStoreViewModel.RevenueStatsViewState
 import com.woocommerce.android.ui.mystore.MyStoreViewModel.VisitorStatsViewState
 import com.woocommerce.android.ui.prefs.privacy.banner.PrivacyBannerFragmentDirections
 import com.woocommerce.android.ui.products.AddProductNavigator
+import com.woocommerce.android.ui.products.ProductDetailFragment
 import com.woocommerce.android.util.ActivityUtils
 import com.woocommerce.android.util.CurrencyFormatter
 import com.woocommerce.android.util.DateUtils
@@ -131,6 +133,9 @@ class MyStoreFragment :
     @Inject
     lateinit var addProductNavigator: AddProductNavigator
 
+    @Inject
+    lateinit var blazeCampaignCreationDispatcher: BlazeCampaignCreationDispatcher
+
     private var _binding: FragmentMyStoreBinding? = null
     private val binding get() = _binding!!
 
@@ -172,6 +177,7 @@ class MyStoreFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        blazeCampaignCreationDispatcher.attachFragment(this, BlazeFlowSource.MY_STORE_SECTION)
 
         _binding = FragmentMyStoreBinding.bind(view)
 
@@ -246,10 +252,12 @@ class MyStoreFragment :
         }
         myStoreBlazeViewModel.event.observe(viewLifecycleOwner) { event ->
             when (event) {
-                is MyStoreBlazeViewModel.LaunchBlazeCampaignCreation -> openBlazeWebView(
+                is MyStoreBlazeViewModel.LaunchBlazeCampaignCreationUsingWebView -> openBlazeWebView(
                     url = event.url,
                     source = event.source
                 )
+
+                is MyStoreBlazeViewModel.LaunchBlazeCampaignCreation -> openBlazeCreationFlow(event.productId)
 
                 is MyStoreBlazeViewModel.ShowAllCampaigns -> {
                     findNavController().navigateSafely(
@@ -267,6 +275,15 @@ class MyStoreFragment :
                     )
                 }
             }
+        }
+    }
+
+    private fun openBlazeCreationFlow(productId: Long?) {
+        lifecycleScope.launch {
+            blazeCampaignCreationDispatcher.startCampaignCreation(
+                source = BlazeFlowSource.MY_STORE_SECTION,
+                productId = productId
+            )
         }
     }
 
@@ -429,7 +446,7 @@ class MyStoreFragment :
             when (event) {
                 is OpenTopPerformer -> findNavController().navigateSafely(
                     NavGraphMainDirections.actionGlobalProductDetailFragment(
-                        remoteProductId = event.productId,
+                        mode = ProductDetailFragment.Mode.ShowProduct(event.productId),
                         isTrashEnabled = false
                     )
                 )

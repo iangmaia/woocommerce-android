@@ -1,9 +1,14 @@
 package com.woocommerce.android.ui.analytics.hub
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -21,6 +26,7 @@ import com.woocommerce.android.ui.analytics.ranges.StatsTimeRangeSelection.Selec
 import com.woocommerce.android.ui.base.BaseFragment
 import com.woocommerce.android.ui.feedback.SurveyType
 import com.woocommerce.android.util.ChromeCustomTabUtils
+import com.woocommerce.android.util.FeatureFlag
 import com.woocommerce.android.viewmodel.MultiLiveEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -29,8 +35,7 @@ import kotlinx.coroutines.launch
 import java.util.Date
 
 @AndroidEntryPoint
-class AnalyticsHubFragment :
-    BaseFragment(R.layout.fragment_analytics) {
+class AnalyticsHubFragment : BaseFragment(R.layout.fragment_analytics) {
     companion object {
         const val KEY_DATE_RANGE_SELECTOR_RESULT = "key_order_status_result"
         const val DATE_PICKER_FRAGMENT_TAG = "DateRangePicker"
@@ -52,6 +57,9 @@ class AnalyticsHubFragment :
         super.onViewCreated(view, savedInstanceState)
         bind(view)
         setupResultHandlers(viewModel)
+        if (FeatureFlag.EXPANDED_ANALYTIC_HUB_M2.isEnabled()) {
+            setupMenu()
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.viewState.flowWithLifecycle(lifecycle).collect { newState -> handleStateChange(newState) }
@@ -78,6 +86,7 @@ class AnalyticsHubFragment :
             is AnalyticsViewEvent.OpenUrl -> ChromeCustomTabUtils.launchUrl(requireContext(), event.url)
             is AnalyticsViewEvent.OpenWPComWebView -> findNavController()
                 .navigate(NavGraphMainDirections.actionGlobalWPComWebViewFragment(urlToLoad = event.url))
+
             is AnalyticsViewEvent.OpenDatePicker -> showDateRangePicker(event.fromMillis, event.toMillis)
             is AnalyticsViewEvent.OpenDateRangeSelector -> openDateRangeSelector()
             is AnalyticsViewEvent.SendFeedback -> sendFeedback()
@@ -110,6 +119,13 @@ class AnalyticsHubFragment :
     private fun bind(view: View) {
         _binding = FragmentAnalyticsBinding.bind(view)
         binding.analyticsDateSelectorCard.setOnClickListener { viewModel.onDateRangeSelectorClick() }
+        binding.analyticsOrdersCard.onSeeReportClickListener = { url -> viewModel.onSeeReport(url, ReportCard.Orders) }
+        binding.analyticsRevenueCard.onSeeReportClickListener = { url ->
+            viewModel.onSeeReport(url, ReportCard.Revenue)
+        }
+        binding.analyticsProductsCard.onSeeReportClickListener = { url ->
+            viewModel.onSeeReport(url, ReportCard.Products)
+        }
     }
 
     private fun handleStateChange(viewState: AnalyticsViewState) {
@@ -157,5 +173,27 @@ class AnalyticsHubFragment :
         NavGraphMainDirections
             .actionGlobalFeedbackSurveyFragment(SurveyType.ANALYTICS_HUB)
             .apply { findNavController().navigateSafely(this) }
+    }
+
+    private fun setupMenu() {
+        requireActivity().addMenuProvider(
+            object : MenuProvider {
+                override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                    menuInflater.inflate(R.menu.menu_analytics_settings, menu)
+                }
+
+                override fun onMenuItemSelected(item: MenuItem): Boolean {
+                    if (item.itemId == R.id.menu_settings) {
+                        findNavController()
+                            .navigateSafely(AnalyticsHubFragmentDirections.actionAnalyticsToAnalyticsSettings())
+                        return true
+                    }
+
+                    return false
+                }
+            },
+            viewLifecycleOwner,
+            Lifecycle.State.RESUMED
+        )
     }
 }

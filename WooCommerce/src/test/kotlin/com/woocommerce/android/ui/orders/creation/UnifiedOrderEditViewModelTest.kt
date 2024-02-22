@@ -32,6 +32,7 @@ import com.woocommerce.android.ui.orders.creation.taxes.GetTaxRatesInfoDialogVie
 import com.woocommerce.android.ui.orders.creation.taxes.rates.GetTaxRateLabel
 import com.woocommerce.android.ui.orders.creation.taxes.rates.GetTaxRatePercentageValueText
 import com.woocommerce.android.ui.orders.creation.taxes.rates.setting.GetAutoTaxRateSetting
+import com.woocommerce.android.ui.orders.creation.totals.OrderCreateEditTotalsHelper
 import com.woocommerce.android.ui.orders.details.OrderDetailRepository
 import com.woocommerce.android.ui.products.OrderCreationProductRestrictions
 import com.woocommerce.android.ui.products.ParameterRepository
@@ -66,6 +67,7 @@ import org.wordpress.android.fluxc.network.rest.wpcom.wc.WooError
 import org.wordpress.android.fluxc.network.rest.wpcom.wc.WooErrorType
 import org.wordpress.android.fluxc.store.WCProductStore
 import java.math.BigDecimal
+import java.util.Date
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
@@ -97,8 +99,9 @@ abstract class UnifiedOrderEditViewModelTest : BaseUnitTest() {
     lateinit var productListRepository: ProductListRepository
     val currencySymbolFinder: CurrencySymbolFinder = mock()
     private lateinit var mapFeeLineToCustomAmountUiModel: MapFeeLineToCustomAmountUiModel
+    protected lateinit var totalsHelper: OrderCreateEditTotalsHelper
 
-    protected val defaultOrderValue = Order.EMPTY.copy(id = 123)
+    protected val defaultOrderValue = Order.getEmptyOrder(Date(), Date()).copy(id = 123)
 
     @Before
     fun setUp() {
@@ -113,14 +116,19 @@ abstract class UnifiedOrderEditViewModelTest : BaseUnitTest() {
     @Suppress("LongMethod")
     private fun initMocks() {
         val defaultOrderItem = createOrderItem()
-        val emptyOrder = Order.EMPTY
+        val emptyOrder = Order.getEmptyOrder(Date(), Date())
         viewState = OrderCreateEditViewModel.ViewState()
         savedState = spy(OrderCreateEditFormFragmentArgs(mode, sku, barcodeFormat).toSavedStateHandle()) {
             on { getLiveData(viewState.javaClass.name, viewState) } doReturn MutableLiveData(viewState)
-            on { getLiveData(eq(Order.EMPTY.javaClass.name), any<Order>()) } doReturn MutableLiveData(emptyOrder)
+            on {
+                getLiveData(
+                    eq(Order.getEmptyOrder(Date(), Date()).javaClass.name),
+                    any<Order>()
+                )
+            } doReturn MutableLiveData(emptyOrder)
         }
         createUpdateOrderUseCase = mock {
-            onBlocking { invoke(any(), any()) } doReturn flowOf(Succeeded(Order.EMPTY))
+            onBlocking { invoke(any(), any()) } doReturn flowOf(Succeeded(Order.getEmptyOrder(Date(), Date())))
         }
         createOrderItemUseCase = mock {
             onBlocking { invoke(123, null) } doReturn defaultOrderItem
@@ -182,6 +190,7 @@ abstract class UnifiedOrderEditViewModelTest : BaseUnitTest() {
         getTaxRateLabel = mock()
         prefs = mock()
         mapFeeLineToCustomAmountUiModel = mock()
+        totalsHelper = mock()
     }
 
     protected abstract val tracksFlow: String
@@ -444,10 +453,68 @@ abstract class UnifiedOrderEditViewModelTest : BaseUnitTest() {
 
         verify(tracker).track(
             stat = AnalyticsEvent.ORDER_SYNC_FAILED,
-            properties = mapOf(AnalyticsTracker.KEY_FLOW to tracksFlow),
+            properties = mapOf(
+                AnalyticsTracker.KEY_FLOW to tracksFlow,
+                AnalyticsTracker.KEY_USE_GIFT_CARD to false
+            ),
             errorContext = sut::class.java.simpleName,
             errorType = wooError.type.name,
             errorDescription = wooError.message
+        )
+    }
+
+    @Test
+    fun `given a standard order creation, when add gift card is clicked, then track expected event`() = testBlocking {
+        initMocksForAnalyticsWithOrder(defaultOrderValue)
+        createSut()
+
+        sut.onAddGiftCardButtonClicked()
+
+        verify(tracker).track(
+            AnalyticsEvent.ORDER_FORM_ADD_GIFT_CARD_CTA_TAPPED,
+            mapOf(AnalyticsTracker.KEY_FLOW to tracksFlow)
+        )
+    }
+
+    @Test
+    fun `given a standard order creation, when a gift card code is set, then track expected event`() = testBlocking {
+        initMocksForAnalyticsWithOrder(defaultOrderValue)
+        createSut()
+
+        sut.onGiftCardSelected("abc")
+
+        verify(tracker).track(
+            AnalyticsEvent.ORDER_FORM_GIFT_CARD_SET,
+            mapOf(
+                AnalyticsTracker.KEY_FLOW to tracksFlow,
+                AnalyticsTracker.KEY_IS_GIFT_CARD_REMOVED to false
+            )
+        )
+    }
+
+    @Test
+    fun `given a order creation with gift card already set, when a gift card is removed, then track expected event`() = testBlocking {
+        initMocksForAnalyticsWithOrder(defaultOrderValue)
+        createSut()
+
+        sut.onGiftCardSelected("abc")
+
+        verify(tracker).track(
+            AnalyticsEvent.ORDER_FORM_GIFT_CARD_SET,
+            mapOf(
+                AnalyticsTracker.KEY_FLOW to tracksFlow,
+                AnalyticsTracker.KEY_IS_GIFT_CARD_REMOVED to false
+            )
+        )
+
+        sut.onGiftCardSelected("")
+
+        verify(tracker).track(
+            AnalyticsEvent.ORDER_FORM_GIFT_CARD_SET,
+            mapOf(
+                AnalyticsTracker.KEY_FLOW to tracksFlow,
+                AnalyticsTracker.KEY_IS_GIFT_CARD_REMOVED to true
+            )
         )
     }
 
@@ -2376,7 +2443,6 @@ abstract class UnifiedOrderEditViewModelTest : BaseUnitTest() {
             )
         )
     }
-
     //endregion
 
     protected fun createSut(savedStateHandle: SavedStateHandle = savedState) {
@@ -2411,7 +2477,9 @@ abstract class UnifiedOrderEditViewModelTest : BaseUnitTest() {
             orderCreationProductMapper = orderCreationProductMapper,
             adjustProductQuantity = AdjustProductQuantity(),
             mapFeeLineToCustomAmountUiModel = mapFeeLineToCustomAmountUiModel,
-            currencySymbolFinder = currencySymbolFinder
+            currencySymbolFinder = currencySymbolFinder,
+            totalsHelper = totalsHelper,
+            dateUtils = mock()
         )
     }
 

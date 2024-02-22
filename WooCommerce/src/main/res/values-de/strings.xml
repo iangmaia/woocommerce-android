@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Translation-Revision-Date: 2023-12-13 13:54:21+0000
+Translation-Revision-Date: 2024-02-14 11:54:03+0000
 Plural-Forms: nplurals=2; plural=n != 1;
 Generator: GlotPress/2.4.0-alpha
 Language: de
 -->
 <resources>
+    <string name="see_report">Bericht anzeigen</string>
+    <string name="blaze_campaign_edit_ad_destination_site_url_option">Die Startseite der Website</string>
+    <string name="blaze_campaign_edit_ad_destination_product_url_option">Die Produkt-URL</string>
+    <string name="blaze_campaign_edit_ad_destination_parameters_property_title">URL-Parameter</string>
+    <string name="blaze_campaign_edit_ad_destination_url_property_title">Ziel-URL</string>
+    <string name="blaze_campaign_edit_ad_destination_empty_parameters_message">Manuell eingeben</string>
+    <string name="blaze_campaign_creation_location_search_failed_message">Kein Ort gefunden.\nBitte versuche es erneut.</string>
+    <string name="blaze_campaign_creation_location_search_message">Beginne mit der Eingabe des Landes, Bundeslandes oder der Stadt, um verfügbare Optionen anzuzeigen</string>
+    <string name="blaze_campaign_payment_summary_terms_and_conditions">Indem du auf „Kampagne absenden“ klickst, akzeptierst du die &lt;a href=\'termsOfService\'&gt;&lt;u&gt;Geschäftsbedingungen&lt;/u&gt;&lt;/a&gt; sowie die &lt;a href=\'advertisingPolicy\'&gt;&lt;u&gt;Werberichtlinien&lt;/u&gt;&lt;/a&gt; und erlaubst, dass deine Zahlungsmethode für die von dir gewählte Dauer mit dem von dir gewählten Budget belastet wird. &lt;a href=\'learnMore\'&gt;&lt;u&gt;Hier findest du weitere Informationen&lt;/u&gt;&lt;/a&gt; zu Budgets und Zahlungen für beworbene Beiträge.</string>
+    <string name="blaze_campaign_payment_summary_submit_campaign">Kampagne absenden</string>
+    <string name="blaze_campaign_payment_summary_error_loading_payment_methods">Fehler beim Laden der Zahlungsmethoden. Versuche es erneut, indem du hier klickst!</string>
+    <string name="blaze_campaign_payment_summary_add_payment_method">Zahlungsmethode hinzufügen</string>
+    <string name="blaze_campaign_payment_summary_loading_payment_methods">Zahlungsmethoden werden geladen</string>
+    <string name="blaze_campaign_payment_summary_total_budget">Gesamt</string>
+    <string name="blaze_campaign_payment_summary_campaign_budget">Blaze-Kampagne</string>
+    <string name="blaze_campaign_payment_summary_totals">Zahlungsübersicht</string>
+    <string name="blaze_campaign_payment_summary_title">Zahlung</string>
+    <string name="blaze_campaign_preview_target_location_search_hint">Orte suchen</string>
+    <string name="card_reader_payment_receipt_can_not_be_stored">Beleg konnte nicht gespeichert werden</string>
+    <string name="card_reader_payment_receipt_can_not_be_downloaded">Beleg konnte nicht heruntergeladen werden</string>
+    <string name="card_reader_payment_email_client_not_found">Es wurde keine Anwendung gefunden, mit der der Beleg geteilt werden kann</string>
+    <string name="receipt_fetching_error">Es konnte kein Beleg für diese Bestellung geladen werden</string>
+    <string name="blaze_campaign_edit_ad_suggested_by_ai">Von KI vorgeschlagen</string>
+    <string name="blaze_campaign_edit_ad_characters_remaining">%d weitere Zeichen möglich</string>
+    <string name="blaze_campaign_edit_ad_change_description_title">Beschreibung</string>
+    <string name="blaze_campaign_edit_ad_change_tagline_title">Untertitel</string>
+    <string name="blaze_campaign_edit_ad_change_image_button">Bild ändern</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_apply_button">Übernehmen</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_starts">Beginnt</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_duration">%1$s Tage</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_title">Dauer festlegen</string>
+    <string name="blaze_campaign_budget_impressions_info">Aufrufe geben die Häufigkeit an, mit der deine Werbung potenziellen Kunden angezeigt wird.\n\n\n        Auch wenn aufgrund von schwankendem Internet-Traffic und Nutzerverhalten keine genauen Zahlen garantiert werden können, versuchen wir, die tatsächlichen Aufrufe deiner Werbeanzeige so genau wie möglich mit deiner Zielzahl abzugleichen.\n\n\n        Denke daran, dass es bei Aufrufen um die Sichtbarkeit geht und nicht um vom Betrachter ausgeführte Aktionen.</string>
+    <string name="blaze_campaign_budget_impressions_done_button">Fertig</string>
+    <string name="blaze_campaign_budget_impressions_title">Aufrufe</string>
+    <string name="blaze_campaign_budget_update_button">Update</string>
+    <string name="blaze_campaign_budget_edit_duration_button">Bearbeiten</string>
+    <string name="blaze_campaign_budget_duration_section_title">Dauer</string>
+    <string name="blaze_campaign_budget_reach_forecast">Geschätzte Anzahl erreichter Personen pro Tag</string>
+    <string name="blaze_campaign_budget_daily_spend">%1$s täglich</string>
+    <string name="blaze_campaign_budget_days_duration">für %1$s Tage</string>
+    <string name="blaze_campaign_budget_total_spend">Gesamtbestellwert</string>
+    <string name="blaze_campaign_budget_subtitle">Wie viel möchtest du für deine Produkt-Werbekampagne ausgeben?</string>
+    <string name="blaze_campaign_budget_toolbar_title">Dein Budget festlegen</string>
+    <string name="blaze_campaign_preview_target_default_value">Alle</string>
+    <string name="blaze_campaign_preview_days_duration">%1$s Tage seit %2$s</string>
+    <string name="product_creation_survey_button_dont_show_again">Nicht erneut anzeigen</string>
+    <string name="product_creation_survey_button_remind_me_later">Später daran erinnern</string>
+    <string name="product_creation_survey_description">Hast du eine Minute? Hilf uns mit einem kurzen Feedback, unsere KI-gestützten Funktionen zu verbessern.</string>
+    <string name="blaze_campaign_preview_details_confirm_details_button">Details bestätigen</string>
+    <string name="blaze_campaign_preview_details_destination_url">Ziel der Werbung</string>
+    <string name="blaze_campaign_preview_details_interests">Interessen</string>
+    <string name="blaze_campaign_preview_details_location">Ort</string>
+    <string name="blaze_campaign_preview_details_devices">Geräte</string>
+    <string name="blaze_campaign_preview_details_language">Sprache</string>
+    <string name="blaze_campaign_preview_details_budget">Budget</string>
+    <string name="blaze_campaign_preview_details_section_title">Details</string>
+    <string name="blaze_campaign_preview_shop_now_button">Jetzt einkaufen</string>
+    <string name="blaze_campaign_preview_edit_ad">Werbung bearbeiten</string>
+    <string name="blaze_campaign_screen_fragment_title">Vorschau</string>
+    <string name="disabled">Deaktiviert</string>
+    <string name="order_configuration_product_selection_control">Produktauswahl</string>
+    <string name="order_configuration_product_selection">Produkt %s auswählen</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_5">&lt;b&gt;Go-live:&lt;/b&gt; Beobachte, wie deine Werbeaktion startet, und verfolge, wie erfolgreich sie ist.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_4">&lt;b&gt;Schnelle Überprüfung:&lt;/b&gt; Reiche deine Werbung zur schnellen Überprüfung durch den Moderator ein.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_3">&lt;b&gt;Festlegen des Budgets:&lt;/b&gt; Lege deine Ausgaben und die Länge deiner Kampagne fest.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_2">&lt;b&gt;Anpassen der Zielgruppe:&lt;/b&gt; Wähle die Zielgruppe nach Ort oder Interessen aus und sieh dir die potenzielle Reichweite an.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_1">&lt;b&gt;Auswahl des Produkts:&lt;/b&gt; Wähle, was du mit Blaze bewerben möchtest.</string>
+    <string name="scan_to_update_inventory_manage_stock">Bestand verwalten</string>
+    <string name="scan_to_update_inventory_stock_not_managed">Bestand nicht verwaltet</string>
+    <string name="blaze_campaign_creation_new_intro_learn_more">So funktioniert Blaze</string>
+    <string name="blaze_campaign_creation_new_intro_start_button">Deine Kampagne starten</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_subtitle">Deine Werbung auf Millionen Websites in den WordPress.com- und Tumblr-Netzwerken.</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_title">Erziele eine große Reichweite</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_subtitle">„Unser Tool zeigt dein Produkt dort an, wo es von interessierten Käufern gefunden werden kann.“</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_title">Globale Reichweite leicht gemacht</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_subtitle">Veröffentliche Werbung in Minutenschnelle – ohne Erfahrung oder großes Budget – schon ab 5 USD.</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_title">Schneller Start, große Wirkung</string>
+    <string name="blaze_campaign_creation_new_intro_description">Unser Tool ermöglicht es Händlern, Werbekampagnen schnell und einfach einzurichten, um maximalen Traffic zu erzielen.</string>
+    <string name="blaze_campaign_creation_product_selector_cta_button">Bewerben</string>
+    <string name="blaze_campaign_creation_product_selector_title">Bereit zum Bewerben</string>
+    <string name="blaze_campaign_creation_new_intro_title">Präsentiere deine Produkte Millionen von Interessenten</string>
+    <string name="theme_preview_activate_theme_button_settings">Verwende %1$s</string>
+    <string name="theme_preview_activate_theme_button_store_creation">Beginne mit %1$s</string>
+    <string name="store_creation_installation_async_dialog_switch_store">Shop wechseln</string>
+    <string name="store_creation_installation_async_dialog_message">Möchtest du jetzt mit dem Verwalten beginnen?</string>
+    <string name="store_creation_installation_async_dialog_title">Dein Shop ist einsatzbereit</string>
+    <string name="card_reader_hub_deposit_funds_deposits_title">LETZTE AUSZAHLUNG</string>
+    <string name="order_creation_expand_collapse_order_totals">Bestellsumme aufklappen/zuklappen</string>
+    <string name="order_creation_collect_payment_button">Zahlung empfangen</string>
+    <string name="order_creation_gift_card_text_error">Der Code muss folgendes Format haben: XXXX-XXXX-XXXX-XXXX</string>
+    <string name="order_creation_gift_card_text_field_hint">Code eingeben</string>
+    <string name="order_creation_coupon_button">Gutschein</string>
+    <string name="theme_picker_error_message">Themes konnten nicht geladen werden.</string>
+    <string name="configuration_complete">Konfiguration abgeschlossen</string>
+    <string name="scan_to_update_inventory_undo_snackbar">Mengenaktualisierung rückgängig gemacht</string>
+    <string name="theme_picker_loading_current_theme_failed">Dein aktuelles Theme konnte nicht geladen werden</string>
+    <string name="theme_preview_type_desktop">Desktop</string>
+    <string name="theme_preview_type_tablet">Tablet</string>
+    <string name="theme_preview_type_mobile">Mobil</string>
+    <string name="theme_picker_carousel_error_placeholder_message_cta">hier tippen</string>
+    <string name="theme_picker_carousel_error_placeholder_message">Anscheinend gab es ein Problem beim Laden des Templates. Bitte %1$s, um dir eine Live-Demo anzusehen.</string>
+    <string name="theme_picker_carousel_info_item_description_settings">Du kannst dir im WooCommerce-Theme-Shop dein perfektes Theme aussuchen.</string>
+    <string name="theme_picker_current_theme_title">Aktuelles Theme</string>
+    <string name="theme_picker_settings_title">Teste einen neuen Look</string>
+    <string name="product_creation_survey_button_open">Befragung starten</string>
+    <string name="product_creation_survey_title">Deine Meinung ist uns wichtig!</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">Wenn „Persönliche Zahlung“ aktiviert ist, können Kunden für Online-Bestellungen bei Zustellung in bar oder mit Karte zahlen.\n\nBestellungen kannst du auch ohne Aktivierung dieser Funktion weiterhin manuell erstellen.</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">Möchtest du „Persönliche Zahlung“ zu deinem Web-Bezahlvorgang hinzufügen?</string>
+    <string name="card_reader_onboarding_contact_us">Brauchst du Hilfe? &lt;a href=\'\'&gt;Kontaktiere uns&lt;/a&gt;</string>
+    <string name="order_refunds_refund_custom_amount">Individuellen Betrag zurückerstatten</string>
+    <string name="order_refunds_custom_amount_refund">Rückerstattung des individuellen Betrags</string>
+    <string name="barcode_scanning_scan_product_barcode_label">Produkt-Barcode scannen</string>
+    <string name="order_creation_add_gift_card">Geschenkkarte hinzufügen</string>
     <string name="scan_to_update_inventory_product_label">Produkt</string>
     <string name="scan_to_update_inventory_quantity_label">Menge</string>
     <string name="scan_to_update_inventory_original_quantity_label">Ursprüngliche Menge</string>
@@ -36,10 +149,7 @@ Language: de
     <string name="custom_amounts_bottom_sheet_heading">Wie möchtest du deinen individuellen Betrag hinzufügen?</string>
     <string name="custom_amounts_percentage_label">Prozentsatz der Gesamtbestellung (%1$s)</string>
     <string name="custom_amounts_delete_custom_amount">Individuellen Betrag löschen</string>
-    <string name="store_creation_use_theme_button">Mit diesem Theme starten</string>
     <string name="theme_activated_successfully">Theme erfolgreich aktiviert</string>
-    <string name="theme_preview_theme_name">Theme: %1$s</string>
-    <string name="theme_preview_activate_theme_button">Dieses Theme verwenden</string>
     <string name="theme_preview_bottom_sheet_home_section">Startseite</string>
     <string name="theme_preview_bottom_sheet_pages_subtitle">Zum Anzeigen tippen</string>
     <string name="theme_preview_bottom_sheet_pages_title">Seiten auf diesem Template</string>
@@ -83,7 +193,7 @@ Language: de
     <string name="configuration_quantity_between"> zwischen %1$s und %2$s Artikeln </string>
     <string name="configuration_quantity_item_plural">%d Artikel</string>
     <string name="configuration_quantity_item">%d Artikel</string>
-    <string name="order_configuration_change_product_quantity">Ändere die Produktmenge von %1$f zu %2$f</string>
+    <string name="order_configuration_change_product_quantity">Ändere die Produktmenge von %1$.2f zu %2$.2f</string>
     <string name="save_configuration">Konfiguration speichern</string>
     <string name="product_configuration_title">Konfiguration</string>
     <string name="default_product_title">Produkt %s</string>
@@ -118,12 +228,7 @@ Language: de
     <string name="card_reader_hub_deposit_summary_collapse_expand_content_description">Zusammenfassung der Auszahlungen aus-/einblenden</string>
     <string name="card_reader_hub_deposit_summary_learn_more">Weitere Informationen zum Erhalt deiner Zahlungen</string>
     <string name="card_reader_hub_deposit_summary_available_deposit_time_monthly">Verfügbares Guthaben wird automatisch am %s jedes Monats ausgezahlt.</string>
-    <string name="card_reader_hub_deposit_summary_last">Zuletzt</string>
-    <string name="card_reader_hub_deposit_summary_next">Als Nächstes</string>
-    <string name="card_reader_hub_deposit_funds_deposits_title">Auszahlungen</string>
     <string name="card_reader_hub_deposit_summary_funds_available_after_one">Guthaben, das seit %d Tag aussteht, wird zur Verfügung gestellt.</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_one">%d Auszahlung</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_plural">%d Auszahlungen</string>
     <string name="card_reader_hub_deposit_summary_pending_funds">Ausstehendes Guthaben</string>
     <string name="card_reader_hub_deposit_summary_available_funds">Verfügbares Guthaben</string>
     <string name="order_creation_payment_tax_label">Steuern</string>
@@ -901,7 +1006,7 @@ Language: de
     <string name="card_reader_payment_collect_payment_built_in_state">Der integrierte Kartenleser ist bereit</string>
     <string name="card_reader_type_selection_bluetooth_reader">Kartenlesegerät</string>
     <string name="card_reader_type_selection_tap_to_pay">Tap To Pay</string>
-    <string name="analytics_conversion_subtitle">Umrechnungskurs</string>
+    <string name="analytics_conversion_subtitle">Zielabschlussrate</string>
     <string name="analytics_session_card_title">Sitzungen</string>
     <string name="analytics_session_no_data">Keine Sitzungen für diesen Zeitraum</string>
     <string name="date_compared_to">Verglichen mit</string>
@@ -1114,8 +1219,6 @@ Language: de
     <string name="login_site_picker_try_another_address">Andere Adresse versuchen</string>
     <string name="card_reader_onboarding_cash_on_delivery_enable_failure">Bezahlung per Nachnahme konnte nicht aktiviert werden. Versuch es später noch einmal.</string>
     <string name="card_reader_onboarding_cash_on_delivery_disabled_button">„Persönliche Zahlung“ aktivieren</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">Mit der Bezahloption „Persönliche Zahlung“ kannst du Karten- oder Barzahlung bei Abholung oder Lieferung akzeptieren.</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">„Persönliche Zahlung“ als Bezahloption hinzufügen</string>
     <string name="card_reader_connect_learn_more">&lt;a href=\'\'&gt;Weitere Informationen&lt;/a&gt; zu „Persönliche Zahlungen“</string>
     <string name="login_site_picker_new_to_woo">Neu bei WooCommerce</string>
     <string name="site_discovery_postlogin_failure">Es ist ein Fehler aufgetreten, kontaktiere bitte den Support</string>
@@ -1876,7 +1979,6 @@ Language: de
     <string name="variable_product_attributes">Variantenattribute</string>
     <string name="card_reader_detail_not_connected_third_hint_label">Aktiviere Bluetooth auf dem Mobilgerät</string>
     <string name="card_reader_refetching_order_failed">Fehler beim Abrufen der Bestellung Der Bestellstatus in der App ist eventuell nicht aktuell.</string>
-    <string name="card_reader_payment_email_client_not_found">E-Mail-Client-App wird nicht erkannt.</string>
     <string name="card_reader_payment_receipt_email_subject">Dein Beleg vom %s</string>
     <string name="card_reader_payment_fetch_order_loading_payment_state">Bestellung aktualisieren</string>
     <string name="card_reader_payment_fetch_order_loading_header">App-Status aktualisieren</string>

@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Translation-Revision-Date: 2023-12-13 15:54:04+0000
+Translation-Revision-Date: 2024-02-15 14:54:03+0000
 Plural-Forms: nplurals=1; plural=0;
 Generator: GlotPress/2.4.0-alpha
 Language: zh_CN
 -->
 <resources>
+    <string name="see_report">查看报告</string>
+    <string name="blaze_campaign_edit_ad_destination_site_url_option">站点主页</string>
+    <string name="blaze_campaign_edit_ad_destination_product_url_option">产品 URL</string>
+    <string name="blaze_campaign_edit_ad_destination_parameters_property_title">URL 参数</string>
+    <string name="blaze_campaign_creation_location_search_failed_message">未找到位置。\n请重试。</string>
+    <string name="blaze_campaign_creation_location_search_message">开始键入国家/地区、州或城市，查看可用选项</string>
+    <string name="blaze_campaign_edit_ad_destination_url_property_title">目标 URL</string>
+    <string name="blaze_campaign_edit_ad_destination_empty_parameters_message">手动输入</string>
+    <string name="blaze_campaign_payment_summary_terms_and_conditions">点击“提交广告活动”即表示您同意&lt;a href=\'termsOfService\'&gt;&lt;u&gt;服务条款&lt;/u&gt;&lt;/a&gt;和&lt;a href=\'advertisingPolicy\'&gt;&lt;u&gt;广告政策&lt;/u&gt;&lt;/a&gt;，并授权您的付款方式，以便按照您选择的预算和持续时间收费。 &lt;a href=\'learnMore\'&gt;&lt;u&gt;详细了解&lt;/u&gt;&lt;/a&gt; Promoted Posts 的预算和付款的运作方式。</string>
+    <string name="blaze_campaign_payment_summary_add_payment_method">添加付款方式</string>
+    <string name="blaze_campaign_payment_summary_total_budget">总计</string>
+    <string name="blaze_campaign_payment_summary_campaign_budget">Blaze 广告活动</string>
+    <string name="blaze_campaign_payment_summary_totals">付款总额</string>
+    <string name="blaze_campaign_payment_summary_title">付款</string>
+    <string name="blaze_campaign_preview_target_location_search_hint">搜索位置</string>
+    <string name="blaze_campaign_payment_summary_submit_campaign">提交广告活动</string>
+    <string name="blaze_campaign_payment_summary_error_loading_payment_methods">加载付款方式失败，请点击此处重试！</string>
+    <string name="blaze_campaign_payment_summary_loading_payment_methods">正在加载付款方式</string>
+    <string name="card_reader_payment_receipt_can_not_be_stored">无法存储此收据</string>
+    <string name="card_reader_payment_receipt_can_not_be_downloaded">无法下载此收据</string>
+    <string name="card_reader_payment_email_client_not_found">无法检测到任何可共享收据的应用程序</string>
+    <string name="receipt_fetching_error">很抱歉，我们无法加载此订单的收据</string>
+    <string name="blaze_campaign_edit_ad_suggested_by_ai">AI 建议</string>
+    <string name="blaze_campaign_edit_ad_characters_remaining">还可输入 %d 个字符</string>
+    <string name="blaze_campaign_edit_ad_change_description_title">描述</string>
+    <string name="blaze_campaign_edit_ad_change_tagline_title">标语</string>
+    <string name="blaze_campaign_edit_ad_change_image_button">更换图片</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_apply_button">应用</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_starts">开始</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_duration">%1$s 天</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_title">设置时长</string>
+    <string name="blaze_campaign_budget_impressions_done_button">完成</string>
+    <string name="blaze_campaign_budget_impressions_title">展示次数</string>
+    <string name="blaze_campaign_budget_update_button">更新</string>
+    <string name="blaze_campaign_budget_impressions_info">展示次数反映了您的广告出现在潜在客户面前的频率。\n\n\n        由于在线流量的波动和用户行为的差异，我们无法确保确切的数字，但我们将致力于使您广告的实际展示次数尽可能接近目标次数。\n\n\n        请记住，展示次数关乎可见性，而非查看者的操作。</string>
+    <string name="blaze_campaign_budget_edit_duration_button">编辑</string>
+    <string name="blaze_campaign_budget_duration_section_title">时长</string>
+    <string name="blaze_campaign_budget_reach_forecast">每天的预计受众人数</string>
+    <string name="blaze_campaign_budget_daily_spend">%1$s 每天</string>
+    <string name="blaze_campaign_budget_days_duration">共计 %1$s 天</string>
+    <string name="blaze_campaign_budget_total_spend">总支出</string>
+    <string name="blaze_campaign_budget_subtitle">您愿意在产品推广活动上花费多少资金？</string>
+    <string name="blaze_campaign_budget_toolbar_title">设置您的预算</string>
+    <string name="blaze_campaign_preview_target_default_value">所有</string>
+    <string name="blaze_campaign_preview_days_duration">从 %2$s 起 %1$s 天</string>
+    <string name="product_creation_survey_button_dont_show_again">不再显示</string>
+    <string name="product_creation_survey_button_remind_me_later">稍后提醒我</string>
+    <string name="product_creation_survey_description">有时间吗？ 请提供快速反馈，以帮助我们改进人工智能辅助功能。</string>
+    <string name="blaze_campaign_preview_details_confirm_details_button">确认详情</string>
+    <string name="blaze_campaign_preview_details_destination_url">广告目的地</string>
+    <string name="blaze_campaign_preview_details_interests">兴趣</string>
+    <string name="blaze_campaign_preview_details_location">位置</string>
+    <string name="blaze_campaign_preview_details_devices">设备</string>
+    <string name="blaze_campaign_preview_details_language">语言</string>
+    <string name="blaze_campaign_preview_details_budget">预算</string>
+    <string name="blaze_campaign_preview_details_section_title">详情</string>
+    <string name="blaze_campaign_preview_shop_now_button">立即购买</string>
+    <string name="blaze_campaign_screen_fragment_title">预览</string>
+    <string name="blaze_campaign_preview_edit_ad">编辑广告</string>
+    <string name="disabled">禁用</string>
+    <string name="order_configuration_product_selection_control">产品选择</string>
+    <string name="order_configuration_product_selection">选择产品 %s</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_5">&lt;b&gt;上线：&lt;/b&gt;在推广活动开始后进行观察，并跟踪其成功情况。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_4">&lt;b&gt;快速审核：&lt;/b&gt;提交您的广告，以供审核员进行快速检查。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_3">&lt;b&gt;设置您的预算：&lt;/b&gt;决定您将要花费的资金以及广告活动的长度。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_2">&lt;b&gt;自定义目标：&lt;/b&gt;按地点或兴趣选择受众，查看潜在覆盖范围。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_1">&lt;b&gt;选择产品：&lt;/b&gt;选择要通过 Blaze 推广的产品。</string>
+    <string name="scan_to_update_inventory_manage_stock">管理库存</string>
+    <string name="scan_to_update_inventory_stock_not_managed">未管理的库存</string>
+    <string name="blaze_campaign_creation_new_intro_start_button">开始您的广告活动</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_subtitle">在 WordPress.com 和 Tumblr 网络中数以百万计的站点上发布您的广告。</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_title">接触广大受众</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_subtitle">“我们的工具会在感兴趣的购物者可以找到的地方呈现您的产品。”</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_title">轻松简单实现全球覆盖</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_subtitle">几分钟内发布广告 — 无需经验或高额预算，起价仅为 5 美元。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_more">了解 Blaze 的运作机制</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_title">起步快，影响大</string>
+    <string name="blaze_campaign_creation_new_intro_description">我们的工具旨在助力商家快速简单地进行广告活动设置，以最大限度地提高流量。</string>
+    <string name="blaze_campaign_creation_product_selector_cta_button">推广</string>
+    <string name="blaze_campaign_creation_product_selector_title">准备推广</string>
+    <string name="blaze_campaign_creation_new_intro_title">让数百万人看到您的产品</string>
+    <string name="theme_preview_activate_theme_button_settings">使用 %1$s</string>
+    <string name="theme_preview_activate_theme_button_store_creation">开始使用 %1$s</string>
+    <string name="store_creation_installation_async_dialog_switch_store">切换商店</string>
+    <string name="store_creation_installation_async_dialog_message">想要立即开始管理吗？</string>
+    <string name="store_creation_installation_async_dialog_title">您的新商店已准备就绪</string>
+    <string name="card_reader_hub_deposit_funds_deposits_title">上次存款</string>
+    <string name="order_creation_expand_collapse_order_totals">展开折叠订单总计数据</string>
+    <string name="order_creation_collect_payment_button">收款</string>
+    <string name="order_creation_gift_card_text_error">代码格式应该为：XXXX-XXXX-XXXX-XXXX</string>
+    <string name="order_creation_gift_card_text_field_hint">输入代码</string>
+    <string name="order_creation_coupon_button">优惠券</string>
+    <string name="theme_picker_error_message">主题加载失败。</string>
+    <string name="configuration_complete">配置完成</string>
+    <string name="scan_to_update_inventory_undo_snackbar">更新数量操作已撤销</string>
+    <string name="theme_picker_loading_current_theme_failed">无法加载当前主题</string>
+    <string name="theme_preview_type_desktop">台式设备</string>
+    <string name="theme_preview_type_tablet">平板电脑</string>
+    <string name="theme_preview_type_mobile">移动设备</string>
+    <string name="theme_picker_carousel_error_placeholder_message_cta">轻按此处</string>
+    <string name="theme_picker_carousel_error_placeholder_message">抱歉，加载模板时似乎出现了问题。 请访问 %1$s 查看实时演示。</string>
+    <string name="theme_picker_carousel_info_item_description_settings">您可以在 WooCommerce 主题商店中找到最适合您的主题。</string>
+    <string name="theme_picker_current_theme_title">当前主题</string>
+    <string name="theme_picker_settings_title">试用新外观</string>
+    <string name="product_creation_survey_button_open">开始调查</string>
+    <string name="product_creation_survey_title">您的宝贵意见对我们非常重要！</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">启用“现场付款”功能，让客户能在收货时通过现金或银行卡为在线订单付款。\n\n即使不启用此功能，您仍然可以手动创建订单。</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">您想在结账页面中添加“现场付款”功能吗？</string>
+    <string name="card_reader_onboarding_contact_us">需要一些帮助？ &lt;a href=\'\'&gt;联系我们&lt;/a&gt;</string>
+    <string name="order_refunds_refund_custom_amount">退还自定义金额</string>
+    <string name="order_refunds_custom_amount_refund">自定义金额退款</string>
+    <string name="barcode_scanning_scan_product_barcode_label">扫描产品条形码</string>
+    <string name="order_creation_add_gift_card">添加礼品卡</string>
     <string name="scan_to_update_inventory_product_label">产品</string>
     <string name="scan_to_update_inventory_quantity_label">数量</string>
     <string name="scan_to_update_inventory_original_quantity_label">原始数量</string>
@@ -36,10 +149,7 @@ Language: zh_CN
     <string name="custom_amounts_bottom_sheet_heading">您想怎样添加自定义金额？</string>
     <string name="custom_amounts_delete_custom_amount">删除自定义金额</string>
     <string name="custom_amounts_percentage_label">订单总额百分比 (%1$s)</string>
-    <string name="store_creation_use_theme_button">从此主题开始</string>
     <string name="theme_activated_successfully">主题激活成功</string>
-    <string name="theme_preview_theme_name">主题：%1$s</string>
-    <string name="theme_preview_activate_theme_button">使用此主题</string>
     <string name="theme_preview_bottom_sheet_home_section">主页</string>
     <string name="theme_preview_bottom_sheet_pages_subtitle">轻点以查看</string>
     <string name="theme_preview_bottom_sheet_pages_title">此模板上的页面</string>
@@ -81,9 +191,9 @@ Language: zh_CN
     <string name="configuration_quantity_between"> %1$s 至 %2$s 个项目 </string>
     <string name="configuration_quantity_item_plural">%d 个项目</string>
     <string name="configuration_quantity_item">%d 个项目</string>
-    <string name="order_configuration_change_product_quantity">将产品数量从 %1$f 更改为 %2$f</string>
     <string name="product_variation_picker_title">选择一个变体</string>
     <string name="configuration_variable_update">选择变体</string>
+    <string name="order_configuration_change_product_quantity">将产品数量从 %1$.2f 更改为 %2$.2f</string>
     <string name="save_configuration">保存配置</string>
     <string name="product_configuration_title">配置</string>
     <string name="default_product_title">产品 %s</string>
@@ -117,11 +227,6 @@ Language: zh_CN
     <string name="card_reader_hub_deposit_summary_status_estimated">预估价格</string>
     <string name="card_reader_hub_deposit_summary_collapse_expand_content_description">折叠/展开存款摘要</string>
     <string name="card_reader_hub_deposit_summary_learn_more">进一步了解收到资金的时间</string>
-    <string name="card_reader_hub_deposit_summary_last">上一个</string>
-    <string name="card_reader_hub_deposit_summary_next">下一个</string>
-    <string name="card_reader_hub_deposit_funds_deposits_title">存款</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_one">%d 存款</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_plural">%d 存款</string>
     <string name="card_reader_hub_deposit_summary_pending_funds">待处理资金</string>
     <string name="card_reader_hub_deposit_summary_available_funds">可用资金</string>
     <string name="order_creation_payment_tax_label">税费</string>
@@ -1114,12 +1219,10 @@ Language: zh_CN
     <string name="login_site_picker_try_another_address">尝试使用其他地址</string>
     <string name="card_reader_onboarding_cash_on_delivery_enable_failure">启用货到付款失败。 请稍后重试。</string>
     <string name="card_reader_onboarding_cash_on_delivery_disabled_button">启用现场付款</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">通过在结账时使用“现场付款”选项，您可在到货或配送时接受银行卡或现金付款。</string>
     <string name="card_reader_connect_learn_more">&lt;a href=\'\'&gt;详细了解&lt;/a&gt;现场付款</string>
     <string name="login_site_picker_new_to_woo">首次使用 WooCommerce</string>
     <string name="site_discovery_postlogin_failure">发生错误，请联系支持人员</string>
     <string name="login_site_picker_enter_site_address">输入站点地址</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">将现场付款添加到您的结账方式</string>
     <string name="login_help_notification_invalid_password_title">忘记密码？</string>
     <string name="login_help_notification_get_link_by_email_button">通过电子邮件获取登录链接</string>
     <string name="card_reader_onboarding_not_finished">我们注意到您尚未完成“现场付款”设置。 &lt;a href=\'\'&gt;继续设置&lt;/a&gt;</string>
@@ -1875,7 +1978,6 @@ Language: zh_CN
     <string name="empty_product_add_product_button">添加产品</string>
     <string name="variable_product_attributes">变体属性</string>
     <string name="card_reader_detail_not_connected_third_hint_label">打开移动设备蓝牙</string>
-    <string name="card_reader_payment_email_client_not_found">未侦测到您的电子邮件客户端应用</string>
     <string name="card_reader_payment_receipt_email_subject">来自 %s 的收据</string>
     <string name="card_reader_payment_fetch_order_loading_payment_state">刷新订单</string>
     <string name="card_reader_payment_fetch_order_loading_header">更新应用程序状态</string>

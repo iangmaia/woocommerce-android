@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Translation-Revision-Date: 2023-12-13 15:54:05+0000
+Translation-Revision-Date: 2024-02-14 15:54:03+0000
 Plural-Forms: nplurals=2; plural=n != 1;
 Generator: GlotPress/2.4.0-alpha
 Language: he_IL
 -->
 <resources>
+    <string name="see_report">להציג את הדוח</string>
+    <string name="blaze_campaign_edit_ad_destination_site_url_option">עמוד הבית של האתר</string>
+    <string name="blaze_campaign_edit_ad_destination_product_url_option">כתובת ה-URL של המוצר</string>
+    <string name="blaze_campaign_edit_ad_destination_parameters_property_title">פרמטרים של כתובת URL</string>
+    <string name="blaze_campaign_edit_ad_destination_url_property_title">כתובת URL ליעד</string>
+    <string name="blaze_campaign_edit_ad_destination_empty_parameters_message">יש להזין באופן ידני</string>
+    <string name="blaze_campaign_creation_location_search_failed_message">לא נמצא מיקום.\nיש לנסות שוב.</string>
+    <string name="blaze_campaign_creation_location_search_message">יש להתחיל בהקלדת מדינה או עיר כדי להציג את האפשרויות הזמינות</string>
+    <string name="blaze_campaign_payment_summary_terms_and_conditions">לחיצה על \'לשלוח את הקמפיין\' נחשבת הסכמה מצדך ל&lt;a href=\'termsOfService\'&gt;&lt;u&gt;תנאי השימוש&lt;/u&gt;&lt;/a&gt; &lt;a href=\'advertisingPolicy\'&gt;&lt;u&gt;ולמדיניות הפרסום&lt;/u&gt;&lt;/a&gt; שלנו ומאשרת לנו לחייב את אמצעי התשלום שלך בהתאם לתקציב ולמשך הזמן שבחרת. ניתן &lt;a href=\'learnMore\'&gt;&lt;u&gt;לקבל מידע נוסף&lt;/u&gt;&lt;/a&gt; לגבי האופן שבו תקציבים ותשלומים עובדים בפוסטים מקודמים.</string>
+    <string name="blaze_campaign_payment_summary_submit_campaign">שליחת קמפיין</string>
+    <string name="blaze_campaign_payment_summary_error_loading_payment_methods">טעינת אמצעי התשלום נכשלה, יש ללחוץ כאן כדי לנסות שוב!</string>
+    <string name="blaze_campaign_payment_summary_add_payment_method">להוסיף אמצעי תשלום</string>
+    <string name="blaze_campaign_payment_summary_loading_payment_methods">טוען אמצעי תשלום</string>
+    <string name="blaze_campaign_payment_summary_total_budget">סכום כולל</string>
+    <string name="blaze_campaign_payment_summary_campaign_budget">קמפיין של Blaze</string>
+    <string name="blaze_campaign_payment_summary_totals">סכומים כוללים לתשלום</string>
+    <string name="blaze_campaign_payment_summary_title">תשלום</string>
+    <string name="blaze_campaign_preview_target_location_search_hint">לחפש מיקומים</string>
+    <string name="card_reader_payment_receipt_can_not_be_stored">לא ניתן לאחסן את הקבלה</string>
+    <string name="card_reader_payment_receipt_can_not_be_downloaded">לא ניתן להוריד את הקבלה</string>
+    <string name="card_reader_payment_email_client_not_found">לא הצלחנו לזהות אפליקציה שאליה אפשר לשתף את הקבלה</string>
+    <string name="receipt_fetching_error">מצטערים, לא הצלחנו לטעון את הקבלה של ההזמנה הזאת</string>
+    <string name="blaze_campaign_edit_ad_suggested_by_ai">הומלץ על ידי בינה מלאכותית</string>
+    <string name="blaze_campaign_edit_ad_characters_remaining">%d תווים נותרו</string>
+    <string name="blaze_campaign_edit_ad_change_description_title">תיאור</string>
+    <string name="blaze_campaign_edit_ad_change_tagline_title">תיאור האתר</string>
+    <string name="blaze_campaign_edit_ad_change_image_button">להחליף תמונה</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_apply_button">להחיל</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_starts">מתחיל במועד</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_duration">⁦%1$s⁩ ימים</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_title">להגדיר מיקום</string>
+    <string name="blaze_campaign_budget_impressions_info">הצפיות מייצגות את התדירות שבה הפרסומת שלך מוצגת ללקוחות פוטנציאליים.\n\n\n        אומנם לא ניתן להבטיח שהמספרים יהיו מדויקים עקב שינויים בתעבורה המקוונת והתנהגות המשתמשים, אך אנחנו שואפים להתאים כמה שאפשר את מספר הצפיות במודעה שלך בפועל למספר היעד שהצבת.\n\n\n        חשוב לזכור, הצפיות משקפות את הנראות של הפרסומת, לא את הפעולה שבוצעה על ידי הצופים.</string>
+    <string name="blaze_campaign_budget_impressions_done_button">סיימתי</string>
+    <string name="blaze_campaign_budget_impressions_title">צפיות</string>
+    <string name="blaze_campaign_budget_update_button">לעדכן</string>
+    <string name="blaze_campaign_budget_edit_duration_button">לערוך</string>
+    <string name="blaze_campaign_budget_duration_section_title">משך זמן</string>
+    <string name="blaze_campaign_budget_reach_forecast">מספר האנשים שיראו את התוכן בכל יום</string>
+    <string name="blaze_campaign_budget_daily_spend">⁦%1$s⁩ בכל יום</string>
+    <string name="blaze_campaign_budget_days_duration">ל-⁦%1$s⁩ ימים</string>
+    <string name="blaze_campaign_budget_total_spend">הוצאה כוללת</string>
+    <string name="blaze_campaign_budget_subtitle">כמה ברצונך להוציא על קמפיין הקידום של המוצר שלך?</string>
+    <string name="blaze_campaign_budget_toolbar_title">להגדיר את תקציב שלך</string>
+    <string name="blaze_campaign_preview_target_default_value">הכול</string>
+    <string name="blaze_campaign_preview_days_duration">⁦%1$s⁩ ימים מ-⁦%2$s⁩</string>
+    <string name="product_creation_survey_button_dont_show_again">אל תציגו לי את זה שוב</string>
+    <string name="product_creation_survey_button_remind_me_later">הזכירו לי מאוחר יותר</string>
+    <string name="product_creation_survey_description">אפשר רגע מזמנך? אנחנו רוצים לבקש את עזרתך בשיפור האפשרויות שמבוססות על בינה מלאכותית על ידי מענה על משוב קצר.</string>
+    <string name="blaze_campaign_preview_details_confirm_details_button">לאשר את הפרטים</string>
+    <string name="blaze_campaign_preview_details_destination_url">היעד של הפרסומת</string>
+    <string name="blaze_campaign_preview_details_interests">תחומי עניין</string>
+    <string name="blaze_campaign_preview_details_location">מיקום</string>
+    <string name="blaze_campaign_preview_details_devices">מכשירים</string>
+    <string name="blaze_campaign_preview_details_language">שפה</string>
+    <string name="blaze_campaign_preview_details_budget">תקציב</string>
+    <string name="blaze_campaign_preview_details_section_title">פרטים</string>
+    <string name="blaze_campaign_preview_shop_now_button">לרכישה כעת</string>
+    <string name="blaze_campaign_preview_edit_ad">לערוך את הפרסומת</string>
+    <string name="blaze_campaign_screen_fragment_title">תצוגה מקדימה</string>
+    <string name="disabled">נָכֶה</string>
+    <string name="order_configuration_product_selection_control">בחירת מוצרים</string>
+    <string name="order_configuration_product_selection">יש לבחור מוצר %s</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_5">&lt;b&gt;לפרסם באינטרנט:&lt;/b&gt; לראות את הביצועים כאשר מבצע הקידום מתחיל ולעקוב אחר הצלחתו.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_4">&lt;b&gt;סקירה מהירה:&lt;/b&gt; לשלוח את הפרסומת לבדיקה מהירה של המנהלים.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_3">&lt;b&gt;להגדיר את התקציב שלך:&lt;/b&gt; להחליט לגבי ההוצאה ומשך הקמפיין.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_2">&lt;b&gt;להתאים אישית את מיקוד הקהל:&lt;/b&gt; לבחור קהל לפי מיקום או תחום עניין ולראות את הפוטנציאל לחשיפה.</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_1">&lt;b&gt;לבחור מוצר:&lt;/b&gt; לבחור מה לקדם עם Blaze.</string>
+    <string name="scan_to_update_inventory_manage_stock">ניהול מלאי</string>
+    <string name="scan_to_update_inventory_stock_not_managed">המלאי לא מנוהל</string>
+    <string name="blaze_campaign_creation_new_intro_learn_more">ללמוד איך Blaze פועל</string>
+    <string name="blaze_campaign_creation_new_intro_start_button">להתחיל קמפיין</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_subtitle">המודעות שלך יוצגו במיליוני אתרים ברשת WordPress.com וברשת Tumblr.</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_title">לגשת לקהל עצום</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_subtitle">\"הכלי שלנו מציג את המוצר שלך במקומות שבהם לקוחות מעוניינים יוכלו למצוא אותו.\"</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_title">חשיפה עולמית, בלי להסתבך</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_subtitle">אפשר להפיץ מודעות בתוך דקות – אין צורך בניסיון או בתקציב גדול, אפשר להתחיל בעלות התחלתית של $5 בלבד.</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_title">התחלה מהירה, השפעה גדולה</string>
+    <string name="blaze_campaign_creation_new_intro_description">הכלי שלנו מתוכנן כך שיקדם סוחרים בעזרת הגדרה מהירה ופשוטה של מבצע פרסומות, להגברה מרבית של התעבורה.</string>
+    <string name="blaze_campaign_creation_product_selector_cta_button">לקדם</string>
+    <string name="blaze_campaign_creation_product_selector_title">מוכן לקידום</string>
+    <string name="blaze_campaign_creation_new_intro_title">בדרך זו מיליונים יראו את המוצרים שלך</string>
+    <string name="theme_preview_activate_theme_button_settings">להשתמש ב-⁦%1$s⁩</string>
+    <string name="theme_preview_activate_theme_button_store_creation">להתחיל עם ⁦%1$s⁩</string>
+    <string name="store_creation_installation_async_dialog_switch_store">להחליף חנות</string>
+    <string name="store_creation_installation_async_dialog_message">מתאים לך להתחיל לנהל קמפיין עכשיו?</string>
+    <string name="store_creation_installation_async_dialog_title">החנות החדשה שלך מוכנה</string>
+    <string name="card_reader_hub_deposit_funds_deposits_title">הפקדה אחרונה</string>
+    <string name="order_creation_expand_collapse_order_totals">להרחיב / לכווץ סכומי הזמנות</string>
+    <string name="order_creation_collect_payment_button">לגבות תשלום</string>
+    <string name="order_creation_gift_card_text_error">הקוד אמור להיות בפורמט XXXX-XXXX-XXXX-XXXX</string>
+    <string name="order_creation_gift_card_text_field_hint">יש להזין קוד</string>
+    <string name="order_creation_coupon_button">קופון</string>
+    <string name="theme_picker_error_message">העלאת ערכות העיצוב נכשלה.</string>
+    <string name="configuration_complete">הושלמו הגדרות התצורה</string>
+    <string name="scan_to_update_inventory_undo_snackbar">עדכון הכמות בוטל</string>
+    <string name="theme_picker_loading_current_theme_failed">לא הצלחנו לטעון את ערכת העיצוב הנוכחית שלך</string>
+    <string name="theme_preview_type_desktop">מחשב שולחני</string>
+    <string name="theme_preview_type_tablet">טאבלט</string>
+    <string name="theme_preview_type_mobile">טלפון נייד</string>
+    <string name="theme_picker_carousel_error_placeholder_message_cta">יש להקיש כאן</string>
+    <string name="theme_picker_carousel_error_placeholder_message">מצטערים, נראה שיש בעיה בהעלאה של התבנית. יש ⁦%1$s⁩ לצפייה בהדגמה חיה.</string>
+    <string name="theme_picker_carousel_info_item_description_settings">אפשר למצוא את ערכת העיצוב המושלמת בחנות ערכות העיצוב של WooCommerce.</string>
+    <string name="theme_picker_current_theme_title">ערכת העיצוב הנוכחית</string>
+    <string name="theme_picker_settings_title">לנסות מראה חדש</string>
+    <string name="product_creation_survey_button_open">להתחיל לענות על הסקר</string>
+    <string name="product_creation_survey_title">אנחנו מעריכים את המשוב שלך!</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">הפעלת האפשרות \'לשלם באופן אישי\' תאפשר ללקוחות לשלם לך על הזמנות מקוונות במעמד המשלוח באמצעות מזומן או כרטיס.\n\nעדיין ניתן ליצור הזמנות באופן ידני ללא הפעלת האפשרות הזו.</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">האם ברצונך להוסיף את \'לשלם באופן אישי\' אל תהליך התשלום בקופה באתר?</string>
+    <string name="card_reader_onboarding_contact_us">נדרשת לך עזרה? &lt;a href=\'\'&gt;ליצירת קשר&lt;/a&gt;</string>
+    <string name="order_refunds_refund_custom_amount">להחזיר סכום בהתאמה אישית</string>
+    <string name="order_refunds_custom_amount_refund">החזר כספי של סכום בהתאמה אישית</string>
+    <string name="barcode_scanning_scan_product_barcode_label">לסרוק את הברקוד של המוצר</string>
+    <string name="order_creation_add_gift_card">להוסיף שובר מתנה</string>
     <string name="scan_to_update_inventory_product_label">מוצר</string>
     <string name="scan_to_update_inventory_quantity_label">כמות</string>
     <string name="scan_to_update_inventory_original_quantity_label">כמות מקורית</string>
@@ -36,10 +149,7 @@ Language: he_IL
     <string name="custom_amounts_bottom_sheet_heading">איך ברצונך להוסיף את הסכום בהתאמה אישית?</string>
     <string name="custom_amounts_percentage_label">אחוז מהסכום הכולל של ההזמנה (⁦%1$s⁩)</string>
     <string name="custom_amounts_delete_custom_amount">למחוק סכום בהתאמה אישית</string>
-    <string name="store_creation_use_theme_button">להתחיל עם ערכת עיצוב זאת</string>
     <string name="theme_activated_successfully">הפעלת ערכת העיצוב בוצעה בהצלחה</string>
-    <string name="theme_preview_theme_name">ערכת עיצוב: ⁦%1$s⁩</string>
-    <string name="theme_preview_activate_theme_button">להשתמש בערכת עיצוב זו</string>
     <string name="theme_preview_bottom_sheet_home_section">עמוד הבית</string>
     <string name="theme_preview_bottom_sheet_pages_subtitle">להקיש כדי להציג</string>
     <string name="theme_preview_bottom_sheet_pages_title">עמודים בתבנית זו</string>
@@ -83,7 +193,7 @@ Language: he_IL
     <string name="configuration_quantity_between"> ⁦%1$s⁩ עד ⁦%2$s⁩ פריטים </string>
     <string name="configuration_quantity_item_plural">%d פריטים</string>
     <string name="configuration_quantity_item">פריט %d</string>
-    <string name="order_configuration_change_product_quantity">לשנות את כמות המוצר מ-⁦%1$f⁩ ל-⁦%2$f⁩</string>
+    <string name="order_configuration_change_product_quantity">לשנות את כמות המוצר מ-%1$.2f ל-%2$.2f</string>
     <string name="save_configuration">לשמור הגדרות תצורה</string>
     <string name="product_configuration_title">הגדרות תצורה</string>
     <string name="default_product_title">מוצר %s</string>
@@ -118,12 +228,7 @@ Language: he_IL
     <string name="card_reader_hub_deposit_summary_collapse_expand_content_description">לכווץ/להרחיב סיכום פיקדון</string>
     <string name="card_reader_hub_deposit_summary_learn_more">למידע נוסף על עיתוי הזמינות של הכספים שלך</string>
     <string name="card_reader_hub_deposit_summary_available_deposit_time_monthly">כספים זמינים יופקדו באופן אוטומטי, ביום ה-%s של כל חודש.</string>
-    <string name="card_reader_hub_deposit_summary_last">אחרון</string>
-    <string name="card_reader_hub_deposit_summary_next">הבא</string>
-    <string name="card_reader_hub_deposit_funds_deposits_title">פיקדונות</string>
     <string name="card_reader_hub_deposit_summary_funds_available_after_one">כספים ייעשו זמינים לאחר תקופת המתנה בת יום %d.</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_one">%d פיקדון</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_plural">%d פיקדונות</string>
     <string name="card_reader_hub_deposit_summary_pending_funds">כספים בהמתנה לאישור</string>
     <string name="card_reader_hub_deposit_summary_available_funds">כספים זמינים</string>
     <string name="order_creation_payment_tax_label">מיסים</string>
@@ -1114,8 +1219,6 @@ Language: he_IL
     <string name="login_site_picker_try_another_address">יש לנסות כתובת אחרת</string>
     <string name="card_reader_onboarding_cash_on_delivery_enable_failure">נכשלה הפעלת האפשרות לתשלום במזומן במהלך המסירה. יש לנסות שוב מאוחר יותר.</string>
     <string name="card_reader_onboarding_cash_on_delivery_disabled_button">להפעיל \'תשלום באופן אישי\'</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">האפשרות \'תשלום באופן אישי\' בקופה מאפשר לך לקבל תשלומים בכרטיס אשראי או במזומן במעמד האיסוף או המסירה.</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">להוסיף \'תשלום באופן אישי\' בקופה</string>
     <string name="card_reader_connect_learn_more">&lt;a href=\'\'&gt;למידע נוסף&lt;/a&gt; בנושא \'תשלומים באופן אישי\'</string>
     <string name="login_site_picker_new_to_woo">פעם ראשונה ב-WooCommerce</string>
     <string name="site_discovery_postlogin_failure">הפעולה נכשלה, יש לפנות לתמיכה</string>
@@ -1876,7 +1979,6 @@ Language: he_IL
     <string name="variable_product_attributes">מאפייני סוגים</string>
     <string name="card_reader_detail_not_connected_third_hint_label">יש להפעיל את חיבור ה-Bluetooth של המכשיר הנייד</string>
     <string name="card_reader_refetching_order_failed">שגיאה בהבאת ההזמנה. ייתכן שמצב ההזמנה באפליקציה לא מעודכן.</string>
-    <string name="card_reader_payment_email_client_not_found">לא ניתן לאתר את האפליקציה של שירות האימייל שלך</string>
     <string name="card_reader_payment_receipt_email_subject">הקבלה שלך מאת %s</string>
     <string name="card_reader_payment_fetch_order_loading_payment_state">מרענן את ההזמנה</string>
     <string name="card_reader_payment_fetch_order_loading_header">מעדכן את מצב האפליקציה</string>

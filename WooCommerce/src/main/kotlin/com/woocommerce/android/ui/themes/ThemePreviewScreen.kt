@@ -2,7 +2,6 @@ package com.woocommerce.android.ui.themes
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.DropdownMenu
@@ -24,8 +22,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.LocalContentColor
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ModalBottomSheetDefaults
-import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue.HalfExpanded
 import androidx.compose.material.ModalBottomSheetValue.Hidden
@@ -50,7 +46,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import com.woocommerce.android.R
 import com.woocommerce.android.R.color
 import com.woocommerce.android.R.dimen
@@ -60,6 +55,7 @@ import com.woocommerce.android.ui.common.wpcomwebview.WPComWebViewAuthenticator
 import com.woocommerce.android.ui.compose.component.BottomSheetHandle
 import com.woocommerce.android.ui.compose.component.Toolbar
 import com.woocommerce.android.ui.compose.component.WCColoredButton
+import com.woocommerce.android.ui.compose.component.WCModalBottomSheetLayout
 import com.woocommerce.android.ui.themes.ThemePreviewViewModel.ThemeDemoPage
 import com.woocommerce.android.ui.themes.ThemePreviewViewModel.ViewState
 import com.woocommerce.android.ui.themes.ThemePreviewViewModel.ViewState.PreviewType
@@ -106,17 +102,8 @@ fun ThemePreviewScreen(
         confirmValueChange = { it != HalfExpanded }
     )
 
-    ModalBottomSheetLayout(
+    WCModalBottomSheetLayout(
         sheetState = modalSheetState,
-        sheetShape = RoundedCornerShape(
-            topStart = dimensionResource(id = dimen.minor_100),
-            topEnd = dimensionResource(id = dimen.minor_100)
-        ),
-        scrimColor =
-        // Overriding scrim color for dark theme because of the following bug affecting ModalBottomSheetLayout:
-        // https://issuetracker.google.com/issues/183697056
-        if (isSystemInDarkTheme()) colorResource(id = color.color_scrim_background)
-        else ModalBottomSheetDefaults.scrimColor,
         sheetContent = {
             ThemeDemoPagesBottomSheet(
                 pages = state.themePages,
@@ -196,6 +183,7 @@ private fun ThemePreviewBottomSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = dimensionResource(id = dimen.major_100))
+                .padding(bottom = dimensionResource(id = dimen.major_100))
         ) {
             if (isActivatingTheme) {
                 CircularProgressIndicator(
@@ -205,22 +193,13 @@ private fun ThemePreviewBottomSection(
             } else {
                 Text(
                     text = stringResource(
-                        id = if (isFromStoreCreation) R.string.store_creation_use_theme_button
-                        else R.string.theme_preview_activate_theme_button
+                        id = if (isFromStoreCreation) R.string.theme_preview_activate_theme_button_store_creation
+                        else R.string.theme_preview_activate_theme_button_settings,
+                        themeName
                     )
                 )
             }
         }
-
-        Text(
-            text = stringResource(id = string.theme_preview_theme_name, themeName),
-            style = MaterialTheme.typography.body2,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = dimensionResource(id = dimen.major_100))
-        )
-        Spacer(modifier = Modifier.height(dimensionResource(id = dimen.major_100)))
     }
 }
 

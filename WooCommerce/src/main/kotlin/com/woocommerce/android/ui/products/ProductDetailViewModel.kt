@@ -71,6 +71,7 @@ import com.woocommerce.android.ui.products.variations.domain.VariationCandidate
 import com.woocommerce.android.ui.promobanner.PromoBannerType
 import com.woocommerce.android.util.CoroutineDispatchers
 import com.woocommerce.android.util.CurrencyFormatter
+import com.woocommerce.android.util.FeatureFlag
 import com.woocommerce.android.util.WooLog
 import com.woocommerce.android.viewmodel.LiveDataDelegate
 import com.woocommerce.android.viewmodel.MultiLiveEvent.Event
@@ -142,7 +143,6 @@ class ProductDetailViewModel @Inject constructor(
     companion object {
         private const val KEY_PRODUCT_PARAMETERS = "key_product_parameters"
         const val DEFAULT_ADD_NEW_PRODUCT_ID: Long = 0L
-        const val MINUM_NUMBER_OF_AI_CREATED_PRODUCTS_TO_SHOW_SURVEY = 3
     }
 
     private val navArgs: ProductDetailFragmentArgs by savedState.navArgs()
@@ -306,8 +306,8 @@ class ProductDetailViewModel @Inject constructor(
     /**
      * Returns boolean value of [navArgs.isAddProduct] to determine if the view model was started for the **add** flow
      */
-    val isAddFlowEntryPoint: Boolean
-        get() = navArgs.isAddProduct
+    private val isAddFlowEntryPoint: Boolean
+        get() = navArgs.mode == ProductDetailFragment.Mode.AddNewProduct
 
     /**
      * Validates if the view model was started for the **add** flow AND there is an already valid product to modify.
@@ -353,18 +353,19 @@ class ProductDetailViewModel @Inject constructor(
     }
 
     private fun initializeViewState() {
-        when (isAddFlowEntryPoint) {
-            true -> startAddNewProduct()
-            else -> {
-                loadRemoteProduct(navArgs.remoteProductId)
-                if (shouldShowAIProductCreationSurvey())
+        when (val mode = navArgs.mode) {
+            is ProductDetailFragment.Mode.AddNewProduct -> startAddNewProduct()
+            is ProductDetailFragment.Mode.ShowProduct -> {
+                loadRemoteProduct(mode.remoteProductId)
+                if (navArgs.isAIContent && !appPrefsWrapper.isAiProductCreationSurveyDismissed)
                     triggerEventWithDelay(ShowAiProductCreationSurveyBottomSheet, delay = 500)
+            }
+
+            is ProductDetailFragment.Mode.Loading -> {
+                viewState = viewState.copy(isSkeletonShown = true)
             }
         }
     }
-
-    private fun shouldShowAIProductCreationSurvey() = navArgs.isAIContent &&
-        appPrefsWrapper.numberOfProductsCreatedUsingAi == MINUM_NUMBER_OF_AI_CREATED_PRODUCTS_TO_SHOW_SURVEY
 
     private fun startAddNewProduct() {
         val defaultProduct = createDefaultProductForAddFlow()
@@ -384,10 +385,17 @@ class ProductDetailViewModel @Inject constructor(
 
     private fun initializeStoredProductAfterRestoration() {
         launch {
-            storedProduct.value = if (isAddFlowEntryPoint && !isProductStoredAtSite) {
-                createDefaultProductForAddFlow()
+            if (isAddFlowEntryPoint && !isProductStoredAtSite) {
+                storedProduct.value = createDefaultProductForAddFlow()
             } else {
-                productRepository.getProductAsync(viewState.productDraft?.remoteId ?: navArgs.remoteProductId)
+                val mode = navArgs.mode
+                if (mode is ProductDetailFragment.Mode.ShowProduct) {
+                    storedProduct.value = productRepository.getProductAsync(
+                        viewState.productDraft?.remoteId ?: mode.remoteProductId
+                    )
+                } else {
+                    viewState = viewState.copy(isSkeletonShown = true)
+                }
             }
         }
     }
@@ -459,15 +467,19 @@ class ProductDetailViewModel @Inject constructor(
 
     fun onBlazeClicked() {
         viewState.productDraft?.let {
-            triggerEvent(
-                NavigateToBlazeWebView(
-                    url = blazeUrlsHelper.buildUrlForProduct(
-                        productId = it.remoteId,
+            if (FeatureFlag.BLAZE_I3.isEnabled()) {
+                triggerEvent(ShowBlazeCreationScreen(it.remoteId))
+            } else {
+                triggerEvent(
+                    NavigateToBlazeWebView(
+                        url = blazeUrlsHelper.buildUrlForProduct(
+                            productId = it.remoteId,
+                            source = BlazeFlowSource.PRODUCT_DETAIL_PROMOTE_BUTTON
+                        ),
                         source = BlazeFlowSource.PRODUCT_DETAIL_PROMOTE_BUTTON
-                    ),
-                    source = BlazeFlowSource.PRODUCT_DETAIL_PROMOTE_BUTTON
+                    )
                 )
-            )
+            }
         }
     }
 
@@ -1339,7 +1351,8 @@ class ProductDetailViewModel @Inject constructor(
 
     fun refreshProduct() {
         launch {
-            fetchProduct(viewState.productDraft?.remoteId ?: navArgs.remoteProductId)
+            val mode = navArgs.mode as ProductDetailFragment.Mode.ShowProduct
+            fetchProduct(viewState.productDraft?.remoteId ?: mode.remoteProductId)
         }
     }
 
@@ -2456,6 +2469,8 @@ class ProductDetailViewModel @Inject constructor(
     object ShowDuplicateProductInProgress : Event()
 
     data class NavigateToBlazeWebView(val url: String, val source: BlazeFlowSource) : Event()
+
+    data class ShowBlazeCreationScreen(val productId: Long) : Event()
 
     data class ShowAIProductDescriptionBottomSheet(
         val productTitle: String,

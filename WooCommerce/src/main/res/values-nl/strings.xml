@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Translation-Revision-Date: 2023-12-13 15:54:05+0000
+Translation-Revision-Date: 2024-02-14 15:54:03+0000
 Plural-Forms: nplurals=2; plural=n != 1;
 Generator: GlotPress/2.4.0-alpha
 Language: nl
 -->
 <resources>
+    <string name="see_report">Rapport inzien</string>
+    <string name="blaze_campaign_edit_ad_destination_site_url_option">De startpagina van de site</string>
+    <string name="blaze_campaign_edit_ad_destination_product_url_option">De product-URL</string>
+    <string name="blaze_campaign_edit_ad_destination_parameters_property_title">URL-parameters</string>
+    <string name="blaze_campaign_edit_ad_destination_url_property_title">URL van bestemming</string>
+    <string name="blaze_campaign_edit_ad_destination_empty_parameters_message">Enter manually</string>
+    <string name="blaze_campaign_creation_location_search_failed_message">Geen locatie gevonden.\nProbeer het opnieuw.</string>
+    <string name="blaze_campaign_creation_location_search_message">Begin met het typen van land, provincie of plaats om de beschikbare opties te bekijken</string>
+    <string name="blaze_campaign_payment_summary_terms_and_conditions">Door op \'Campagne indienen\' te klikken ga je akkoord met de &lt;a href=\'termsOfService\'&gt;&lt;u&gt;Servicevoorwaarden&lt;/u&gt;&lt;/a&gt; en het &lt;a href=\'advertisingPolicy\'&gt;&lt;u&gt;Reclamebeleid&lt;/u&gt;&lt;/a&gt;, en geef er goedkeuring voor dat er via je betaalmethode kosten in rekening worden gebracht voor het bedrag en de periode die je kiest. &lt;a href=\'learnMore\'&gt;&lt;u&gt;Kom meer te weten&lt;/u&gt;&lt;/a&gt; over hoe budgetten en betalingen voor Gepromote berichten werken.</string>
+    <string name="blaze_campaign_payment_summary_submit_campaign">Campagne indienen</string>
+    <string name="blaze_campaign_payment_summary_error_loading_payment_methods">Loading payment methods failed, please retry by clicking here!</string>
+    <string name="blaze_campaign_payment_summary_add_payment_method">Voeg betalingsmethode toe</string>
+    <string name="blaze_campaign_payment_summary_loading_payment_methods">Betaalmethoden laden…</string>
+    <string name="blaze_campaign_payment_summary_total_budget">Totaal</string>
+    <string name="blaze_campaign_payment_summary_campaign_budget">Blaze-campagne</string>
+    <string name="blaze_campaign_payment_summary_totals">Totale betalingen</string>
+    <string name="blaze_campaign_payment_summary_title">Betaling</string>
+    <string name="blaze_campaign_preview_target_location_search_hint">Zoek locaties</string>
+    <string name="card_reader_payment_receipt_can_not_be_stored">Kan het betalingsbewijs niet opslaan</string>
+    <string name="card_reader_payment_receipt_can_not_be_downloaded">Kan het betalingsbewijs niet downloaden</string>
+    <string name="card_reader_payment_email_client_not_found">Kan geen applicatie detecteren waarmee het betalingsbewijs gedeeld kan worden</string>
+    <string name="receipt_fetching_error">Sorry, we konden het betalingsbewijs voor deze bestelling niet laden</string>
+    <string name="blaze_campaign_edit_ad_suggested_by_ai">Suggestie door AI</string>
+    <string name="blaze_campaign_edit_ad_characters_remaining">Nog %d tekens over</string>
+    <string name="blaze_campaign_edit_ad_change_description_title">Omschrijving</string>
+    <string name="blaze_campaign_edit_ad_change_tagline_title">Slogan</string>
+    <string name="blaze_campaign_edit_ad_change_image_button">Afbeelding wijzigen</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_apply_button">Toepassen</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_starts">Begint</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_duration">%1$s dagen</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_title">Tijdsduur instellen</string>
+    <string name="blaze_campaign_budget_impressions_info">Impressies reflecteren hoe vaak je advertentie door potentiële klanten te zien is.\n\n\n        Door wisselend online verkeer en gebruikersgedrag kunnen er geen exacte getallen gegarandeerd worden maar we proberen er voor te zorgen dat de daadwerkelijke impressies van je advertentie zoveel mogelijk overeenkomen met het doelaantal.\n\n\n        Vergeet niet dat het bij impressies draait om zichtbaarheid en niet om de acties die worden ondernomen door de mensen die het zien.</string>
+    <string name="blaze_campaign_budget_impressions_done_button">Gereed</string>
+    <string name="blaze_campaign_budget_impressions_title">Impressies</string>
+    <string name="blaze_campaign_budget_update_button">Updaten</string>
+    <string name="blaze_campaign_budget_edit_duration_button">Bewerken</string>
+    <string name="blaze_campaign_budget_duration_section_title">Duur</string>
+    <string name="blaze_campaign_budget_reach_forecast">Geschatte aantal mensen dat per dag bereikt wordt</string>
+    <string name="blaze_campaign_budget_daily_spend">%1$s per dag</string>
+    <string name="blaze_campaign_budget_days_duration">gedurende %1$s dagen</string>
+    <string name="blaze_campaign_budget_total_spend">Totaal uitgegeven</string>
+    <string name="blaze_campaign_budget_subtitle">Hoeveel wil je uitgeven aan de promotiecampagne voor je product?</string>
+    <string name="blaze_campaign_budget_toolbar_title">Stel je budget in</string>
+    <string name="blaze_campaign_preview_target_default_value">Alles</string>
+    <string name="blaze_campaign_preview_days_duration">%1$s dagen vanaf %2$s</string>
+    <string name="product_creation_survey_button_dont_show_again">Niet opnieuw tonen</string>
+    <string name="product_creation_survey_button_remind_me_later">Herinner mij hier later aan</string>
+    <string name="product_creation_survey_description">Heb je een momentje? Help ons onze functies met AI te verbeteren met wat korte feedback.</string>
+    <string name="blaze_campaign_preview_details_confirm_details_button">Details bevestigen</string>
+    <string name="blaze_campaign_preview_details_destination_url">Advertentiebestemming</string>
+    <string name="blaze_campaign_preview_details_interests">Interesses</string>
+    <string name="blaze_campaign_preview_details_location">Locatie</string>
+    <string name="blaze_campaign_preview_details_devices">Apparaten</string>
+    <string name="blaze_campaign_preview_details_language">Taal</string>
+    <string name="blaze_campaign_preview_details_budget">Budget:</string>
+    <string name="blaze_campaign_preview_details_section_title">Details</string>
+    <string name="blaze_campaign_preview_shop_now_button">Nu winkelen</string>
+    <string name="blaze_campaign_preview_edit_ad">Advertentie bewerken</string>
+    <string name="blaze_campaign_screen_fragment_title">Voorbeeldweergave</string>
+    <string name="disabled">Uitgeschakeld</string>
+    <string name="order_configuration_product_selection_control"> product geselecteerd</string>
+    <string name="order_configuration_product_selection">Product %s selecteren </string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_5">Kijk toe wanneer je promotie begint en volg het succes ervan.&lt;b&gt;&lt;/b&gt;</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_4">Dien je advertentie in voor een snelle beoordeling door een moderator.&lt;b&gt;&lt;/b&gt;</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_3">Bepaal de duur van je uitgaven en campagne.&lt;b&gt;&lt;/b&gt;</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_2">Selecteer je publiek op basis van locatie of interesses en bekijk je potentiële bereik.&lt;b&gt;&lt;/b&gt;</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_1">Kies wat je met Blaze gaat promoten.&lt;b&gt;&lt;/b&gt;</string>
+    <string name="scan_to_update_inventory_manage_stock">Voorraad beheren</string>
+    <string name="scan_to_update_inventory_stock_not_managed">Voorraad niet beheerd</string>
+    <string name="blaze_campaign_creation_new_intro_learn_more">Ontdek hoe Blaze werkt</string>
+    <string name="blaze_campaign_creation_new_intro_start_button">Start je campagne</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_subtitle">Je advertenties op miljoenen sites binnen de WordPress.com- en Tumblr-netwerken.</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_title">Bereik een groot publiek</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_subtitle">Onze tool toont je product daar waar geïnteresseerde winkelaars dit kunnen vinden. \"</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_title">Wereldwijd bereik vereenvoudigd</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_subtitle">Lanceer je advertenties binnen een paar minuten, zonder benodigde ervaring of een groot budget. Vanaf slecht $ 5 USD.</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_title">Snel aan de slag, grote impact</string>
+    <string name="blaze_campaign_creation_new_intro_description">Onze tool is zo ontworpen dat verkopers snel en eenvoudig een campagne kunnen opzetten om meer klanten te kunnen trekken.</string>
+    <string name="blaze_campaign_creation_product_selector_cta_button">Promoten</string>
+    <string name="blaze_campaign_creation_product_selector_title">Klaar om te promoten</string>
+    <string name="blaze_campaign_creation_new_intro_title">Zorg dat je producten door miljoenen mensen worden gezien</string>
+    <string name="theme_preview_activate_theme_button_settings">Gebruik %1$s</string>
+    <string name="theme_preview_activate_theme_button_store_creation">Begin met %1$s</string>
+    <string name="store_creation_installation_async_dialog_switch_store">Winkel wijzigen</string>
+    <string name="store_creation_installation_async_dialog_message">Wil je nu beginnen je winkelbeheer?</string>
+    <string name="store_creation_installation_async_dialog_title">Je nieuw winkel staat klaar</string>
+    <string name="card_reader_hub_deposit_funds_deposits_title">VORIGE STORTING</string>
+    <string name="order_creation_expand_collapse_order_totals">Besteltotalen uitklappen/samenvouwen</string>
+    <string name="order_creation_collect_payment_button">Betaling innen</string>
+    <string name="order_creation_gift_card_text_error">De code moet de volgende indeling hebben: XXXX-XXXX-XXXX-XXXX</string>
+    <string name="order_creation_gift_card_text_field_hint">Voer code in</string>
+    <string name="order_creation_coupon_button">Coupon</string>
+    <string name="theme_picker_error_message">Thema\'s laden mislukt.</string>
+    <string name="configuration_complete">Configuratie voltooid</string>
+    <string name="scan_to_update_inventory_undo_snackbar">Aantal bijwerken ongedaan gemaakt</string>
+    <string name="theme_picker_loading_current_theme_failed">Je huidige thema kon niet geladen worden</string>
+    <string name="theme_preview_type_desktop">Bureaublad</string>
+    <string name="theme_preview_type_tablet">Tablet</string>
+    <string name="theme_preview_type_mobile">Mobiel</string>
+    <string name="theme_picker_carousel_error_placeholder_message_cta">tik hier</string>
+    <string name="theme_picker_carousel_error_placeholder_message">Het lijkt erop dat er een probleem is met het laden van de template. %1$s voor een live demo.</string>
+    <string name="theme_picker_carousel_info_item_description_settings">Je kan jouw perfecte thema vinden in de WooCommerce Theme Store.</string>
+    <string name="theme_picker_current_theme_title">Huidig thema</string>
+    <string name="theme_picker_settings_title">Probeer een nieuwe look</string>
+    <string name="product_creation_survey_button_open">Begin het onderzoek</string>
+    <string name="product_creation_survey_title">We waarderen je input!</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">Door Fysiek betalen in te schakelen kunnen klanten bij levering met cash of kaart betalen voor online bestellingen.\n\nBestellingen kunnen nog steeds handmatig aangemaakt worden als je deze functie niet inschakelt.</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">Wil je Fysiek betalen toevoegen aan online betalen?</string>
+    <string name="card_reader_onboarding_contact_us">Hulp nodig? &lt;a href=\'\'&gt;Neem contact met ons op&lt;/a&gt;</string>
+    <string name="order_refunds_refund_custom_amount">Aangepast bedrag restitueren</string>
+    <string name="order_refunds_custom_amount_refund">Restitutie voor aangepast bedrag</string>
+    <string name="barcode_scanning_scan_product_barcode_label">Barcode van product scannen</string>
+    <string name="order_creation_add_gift_card">Een cadeaubon toevoegen?</string>
     <string name="scan_to_update_inventory_product_label">Product</string>
     <string name="scan_to_update_inventory_quantity_label">Aantal</string>
     <string name="scan_to_update_inventory_original_quantity_label">Originele aantal</string>
@@ -36,10 +149,7 @@ Language: nl
     <string name="custom_amounts_bottom_sheet_heading">Hoe wil je je aangepaste bedrag toevoegen?</string>
     <string name="custom_amounts_percentage_label">Percentage van het totaalaantal bestellingen (%1$s)</string>
     <string name="custom_amounts_delete_custom_amount">Aangepast bedrag verwijderen</string>
-    <string name="store_creation_use_theme_button">Begin met dit thema</string>
     <string name="theme_activated_successfully">Thema geactiveerd</string>
-    <string name="theme_preview_theme_name">Thema: %1$s</string>
-    <string name="theme_preview_activate_theme_button">Gebruik dit thema</string>
     <string name="theme_preview_bottom_sheet_home_section">Home</string>
     <string name="theme_preview_bottom_sheet_pages_subtitle">Tik om te bekijken</string>
     <string name="theme_preview_bottom_sheet_pages_title">Pagina\'s op dit sjabloon</string>
@@ -77,7 +187,7 @@ Language: nl
     <string name="configuration_quantity_between"> tussen de %1$s en %2$s items </string>
     <string name="configuration_quantity_item_plural">%d items</string>
     <string name="configuration_quantity_item">%d items</string>
-    <string name="order_configuration_change_product_quantity">Verander de producthoeveelheid van %1$f naar %2$f</string>
+    <string name="order_configuration_change_product_quantity">Verander de producthoeveelheid van %1$.2f naar %2$.2f</string>
     <string name="save_configuration">Configuratie opslaan</string>
     <string name="product_configuration_title">Configuratie</string>
     <string name="default_product_title">Product %s</string>
@@ -112,12 +222,7 @@ Language: nl
     <string name="card_reader_hub_deposit_summary_collapse_expand_content_description">Samenvatting stortingen uit-/inklappen</string>
     <string name="card_reader_hub_deposit_summary_learn_more">Meer informatie over wanneer je je bedragen ontvangt</string>
     <string name="card_reader_hub_deposit_summary_available_deposit_time_monthly">Beschikbare bedragen worden automatisch elke maand op de %s gestort.</string>
-    <string name="card_reader_hub_deposit_summary_last">Laatste</string>
-    <string name="card_reader_hub_deposit_summary_next">Volgende</string>
-    <string name="card_reader_hub_deposit_funds_deposits_title">Stortingen</string>
     <string name="card_reader_hub_deposit_summary_funds_available_after_one">Bedragen komen na %d dag in de wacht beschikbaar.</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_one">%d storting</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_plural">%d stortingen</string>
     <string name="card_reader_hub_deposit_summary_pending_funds">Bedragen in behandeling</string>
     <string name="card_reader_hub_deposit_summary_available_funds">Beschikbare bedragen</string>
     <string name="order_creation_payment_tax_label">Belastingen</string>
@@ -1107,8 +1212,6 @@ Language: nl
     <string name="login_site_picker_try_another_address">Probeer een ander adres</string>
     <string name="card_reader_onboarding_cash_on_delivery_enable_failure">Contant betalen bij ontvangst inschakelen mislukt. Probeer later opnieuw.</string>
     <string name="card_reader_onboarding_cash_on_delivery_disabled_button">Fysieke betalingen inschakelen.</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">Met een optie voor ‘Fysieke betalingen’ in je online kassa kan je contante of kaartbetalingen accepteren bij ophalen of ontvangst.</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">Voeg fysieke betalingen toe aan je online kassa</string>
     <string name="card_reader_connect_learn_more">&lt;a href=\'\'&gt;Meer informatie&lt;/a&gt; over fysieke betalingen</string>
     <string name="login_site_picker_new_to_woo">Nieuw bij WooCommerce</string>
     <string name="site_discovery_postlogin_failure">Er is een probleem opgetreden, neem contact op met de klantenservice</string>
@@ -1869,7 +1972,6 @@ Language: nl
     <string name="variable_product_attributes">Variatie-eigenschappen</string>
     <string name="card_reader_detail_not_connected_third_hint_label">Zet de Bluetooth aan op je mobiele apparaat</string>
     <string name="card_reader_refetching_order_failed">Fout bij ophalen bestelling. De bestellingsstatus in de app kan verouderd zijn.</string>
-    <string name="card_reader_payment_email_client_not_found">Detectie van mailclient-app mislukt</string>
     <string name="card_reader_payment_receipt_email_subject">Je kwitantie van %s</string>
     <string name="card_reader_payment_fetch_order_loading_payment_state">Bestelling aan het vernieuwen…</string>
     <string name="card_reader_payment_fetch_order_loading_header">Status in de app aan het bijwerken…</string>

@@ -2,13 +2,16 @@ package com.woocommerce.android.media
 
 import android.content.Context
 import android.net.Uri
+import com.woocommerce.android.OnChangedException
 import com.woocommerce.android.R
+import com.woocommerce.android.extensions.isNotNullOrEmpty
 import com.woocommerce.android.media.MediaFilesRepository.UploadResult.UploadFailure
 import com.woocommerce.android.media.MediaFilesRepository.UploadResult.UploadSuccess
 import com.woocommerce.android.tools.SelectedSite
 import com.woocommerce.android.util.CoroutineDispatchers
 import com.woocommerce.android.util.WooLog
 import com.woocommerce.android.util.WooLog.T
+import com.woocommerce.android.util.dispatchAndAwait
 import com.woocommerce.android.viewmodel.ResourceProvider
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.channels.ProducerScope
@@ -27,6 +30,8 @@ import org.wordpress.android.fluxc.Dispatcher
 import org.wordpress.android.fluxc.generated.MediaActionBuilder
 import org.wordpress.android.fluxc.model.MediaModel
 import org.wordpress.android.fluxc.store.MediaStore
+import org.wordpress.android.fluxc.store.MediaStore.MediaPayload
+import org.wordpress.android.fluxc.store.MediaStore.OnMediaChanged
 import org.wordpress.android.fluxc.store.MediaStore.OnMediaUploaded
 import org.wordpress.android.mediapicker.MediaPickerUtils
 import org.wordpress.android.util.MediaUtils
@@ -42,6 +47,23 @@ class MediaFilesRepository @Inject constructor(
     private val resourceProvider: ResourceProvider,
     private val mediaPickerUtils: MediaPickerUtils
 ) {
+    suspend fun fetchWordPressMedia(mediaId: Long): Result<MediaModel> {
+        val result = dispatcher.dispatchAndAwait<MediaPayload, OnMediaChanged>(
+            action = MediaActionBuilder.newFetchMediaAction(
+                MediaPayload(
+                    selectedSite.get(),
+                    MediaModel(selectedSite.get().localId().value, mediaId)
+                )
+            )
+        )
+
+        return if (result.isError) {
+            Result.failure(OnChangedException(result.error))
+        } else {
+            Result.success(result.mediaList.first())
+        }
+    }
+
     suspend fun fetchMedia(localUri: String): MediaModel? {
         return withContext(dispatchers.io) {
             val mediaModel = FileUploadUtils.mediaModelFromLocalUri(
@@ -145,7 +167,7 @@ class MediaFilesRepository @Inject constructor(
 
                 event.completed -> {
                     val media = event.media
-                    val channelResult = if (media != null && media.url.isNotBlank()) {
+                    val channelResult = if (media != null && media.url.isNotNullOrEmpty()) {
                         WooLog.i(T.MEDIA, "MediaFilesRepository > uploaded media ${media.id}")
                         producerScope.trySendBlocking(
                             UploadSuccess(media)

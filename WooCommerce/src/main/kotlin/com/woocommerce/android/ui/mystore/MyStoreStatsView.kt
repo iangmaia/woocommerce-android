@@ -29,14 +29,11 @@ import com.google.android.material.card.MaterialCardView
 import com.woocommerce.android.R
 import com.woocommerce.android.analytics.AnalyticsEvent
 import com.woocommerce.android.analytics.AnalyticsTracker
+import com.woocommerce.android.analytics.AnalyticsTracker.Companion.KEY_DATE
+import com.woocommerce.android.analytics.AnalyticsTracker.Companion.KEY_GRANULARITY
+import com.woocommerce.android.analytics.AnalyticsTracker.Companion.KEY_RANGE
 import com.woocommerce.android.databinding.MyStoreStatsBinding
 import com.woocommerce.android.extensions.convertedFrom
-import com.woocommerce.android.extensions.formatDateToFriendlyDayHour
-import com.woocommerce.android.extensions.formatDateToFriendlyLongMonthDate
-import com.woocommerce.android.extensions.formatDateToFriendlyLongMonthYear
-import com.woocommerce.android.extensions.formatDateToYearMonth
-import com.woocommerce.android.extensions.formatToDateOnly
-import com.woocommerce.android.extensions.formatToMonthDateOnly
 import com.woocommerce.android.tools.SelectedSite
 import com.woocommerce.android.ui.mystore.MyStoreFragment.Companion.DEFAULT_STATS_GRANULARITY
 import com.woocommerce.android.util.CurrencyFormatter
@@ -325,7 +322,7 @@ class MyStoreStatsView @JvmOverloads constructor(
             StatsGranularity.WEEKS -> dateUtils.getShortMonthDayString(dateString).orEmpty()
             StatsGranularity.MONTHS -> dateUtils.getMonthString(dateString).orEmpty()
             StatsGranularity.YEARS -> dateUtils.getYearString(dateString).orEmpty()
-        }
+        }.also { result -> trackUnexpectedFormat(result, dateString) }
     }
 
     override fun onValueSelected(entry: Entry?, h: Highlight?) {
@@ -370,11 +367,11 @@ class MyStoreStatsView @JvmOverloads constructor(
      */
     private fun updateDateOnScrubbing(dateString: String, activeGranularity: StatsGranularity) {
         statsDateValue.text = when (activeGranularity) {
-            StatsGranularity.DAYS -> dateString.formatDateToFriendlyDayHour()
-            StatsGranularity.WEEKS -> dateString.formatToMonthDateOnly()
-            StatsGranularity.MONTHS -> dateString.formatDateToFriendlyLongMonthDate()
-            StatsGranularity.YEARS -> dateString.formatDateToFriendlyLongMonthYear()
-        }
+            StatsGranularity.DAYS -> dateUtils.getFriendlyDayHourString(dateString).orEmpty()
+            StatsGranularity.WEEKS -> dateUtils.getShortMonthDayString(dateString).orEmpty()
+            StatsGranularity.MONTHS -> dateUtils.getLongMonthDayString(dateString).orEmpty()
+            StatsGranularity.YEARS -> dateUtils.getFriendlyLongMonthYear(dateString).orEmpty()
+        }.also { result -> trackUnexpectedFormat(result, dateString) }
     }
 
     /**
@@ -560,7 +557,7 @@ class MyStoreStatsView @JvmOverloads constructor(
      */
     private fun getFormattedVisitorStats(visitorStats: Map<String, Int>): Map<String, Int> {
         return if (activeGranularity == StatsGranularity.YEARS) visitorStats.mapKeys {
-            it.key.formatDateToYearMonth()
+            dateUtils.getYearMonthString(it.key) ?: it.key.take("yyyy-MM".length)
         } else visitorStats
     }
 
@@ -611,6 +608,19 @@ class MyStoreStatsView @JvmOverloads constructor(
             StatsGranularity.WEEKS -> dateUtils.getShortMonthDayString(dateString).orEmpty()
             StatsGranularity.MONTHS -> dateUtils.getShortMonthDayString(dateString).orEmpty()
             StatsGranularity.YEARS -> dateUtils.getShortMonthString(dateString).orEmpty()
+        }.also { result -> trackUnexpectedFormat(result, dateString) }
+    }
+
+    private fun trackUnexpectedFormat(result: String, dateString: String) {
+        if (result.isEmpty()) {
+            AnalyticsTracker.track(
+                AnalyticsEvent.STATS_UNEXPECTED_FORMAT,
+                mapOf(
+                    KEY_DATE to dateString,
+                    KEY_GRANULARITY to activeGranularity.name,
+                    KEY_RANGE to revenueStatsModel?.rangeId
+                )
+            )
         }
     }
 
@@ -641,9 +651,9 @@ class MyStoreStatsView @JvmOverloads constructor(
             return when (activeGranularity) {
                 StatsGranularity.DAYS -> dateUtils.getShortHourString(dateString).orEmpty()
                 StatsGranularity.WEEKS -> getWeekLabelValue(dateString)
-                StatsGranularity.MONTHS -> dateString.formatToDateOnly()
+                StatsGranularity.MONTHS -> dateUtils.getDayString(dateString).orEmpty()
                 StatsGranularity.YEARS -> dateUtils.getShortMonthString(dateString).orEmpty()
-            }
+            }.also { result -> trackUnexpectedFormat(result, dateString) }
         }
 
         /**
@@ -653,11 +663,11 @@ class MyStoreStatsView @JvmOverloads constructor(
          * Otherwise the formatted date would be `d` format
          */
         private fun getWeekLabelValue(dateString: String): String {
-            val formattedDateString = dateString.formatToDateOnly()
+            val formattedDateString = dateUtils.getDayString(dateString)
             return if (formattedDateString == "1") {
-                dateString.formatToMonthDateOnly()
+                dateUtils.getShortMonthDayString(dateString).orEmpty()
             } else {
-                dateString.formatToDateOnly()
+                formattedDateString.orEmpty()
             }
         }
     }

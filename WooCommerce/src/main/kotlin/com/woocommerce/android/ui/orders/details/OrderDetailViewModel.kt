@@ -47,8 +47,10 @@ import com.woocommerce.android.ui.orders.OrderNavigationTarget.ViewPrintingInstr
 import com.woocommerce.android.ui.orders.OrderNavigationTarget.ViewRefundedProducts
 import com.woocommerce.android.ui.orders.OrderStatusUpdateSource
 import com.woocommerce.android.ui.orders.details.customfields.CustomOrderFieldsHelper
-import com.woocommerce.android.ui.payments.cardreader.CardReaderTracker
+import com.woocommerce.android.ui.payments.cardreader.onboarding.CardReaderFlowParam
 import com.woocommerce.android.ui.payments.cardreader.payment.CardReaderPaymentCollectibilityChecker
+import com.woocommerce.android.ui.payments.receipt.PaymentReceiptHelper
+import com.woocommerce.android.ui.payments.tracking.PaymentsFlowTracker
 import com.woocommerce.android.ui.products.ProductDetailRepository
 import com.woocommerce.android.ui.products.addons.AddonRepository
 import com.woocommerce.android.ui.shipping.InstallWCShippingViewModel
@@ -83,14 +85,15 @@ class OrderDetailViewModel @Inject constructor(
     private val selectedSite: SelectedSite,
     private val productImageMap: ProductImageMap,
     private val paymentCollectibilityChecker: CardReaderPaymentCollectibilityChecker,
-    private val cardReaderTracker: CardReaderTracker,
+    private val paymentsFlowTracker: PaymentsFlowTracker,
     private val tracker: OrderDetailTracker,
     private val shippingLabelOnboardingRepository: ShippingLabelOnboardingRepository,
     private val orderDetailsTransactionLauncher: OrderDetailsTransactionLauncher,
     private val getOrderSubscriptions: GetOrderSubscriptions,
     private val giftCardRepository: GiftCardRepository,
     private val orderProductMapper: OrderProductMapper,
-    private val productDetailRepository: ProductDetailRepository
+    private val productDetailRepository: ProductDetailRepository,
+    private val paymentReceiptHelper: PaymentReceiptHelper,
 ) : ScopedViewModel(savedState), OnProductFetchedListener {
     private val navArgs: OrderDetailFragmentArgs by savedState.navArgs()
 
@@ -100,9 +103,13 @@ class OrderDetailViewModel @Inject constructor(
         get() = requireNotNull(viewState.orderInfo?.order)
         set(value) {
             viewState = viewState.copy(
-                orderInfo = OrderDetailViewState.OrderInfo(
+                orderInfo = viewState.orderInfo?.copy(
+                    order = value,
+                    isPaymentCollectableWithCardReader = viewState.orderInfo?.isPaymentCollectableWithCardReader
+                        ?: false
+                ) ?: OrderDetailViewState.OrderInfo(
                     value,
-                    viewState.orderInfo?.isPaymentCollectableWithCardReader ?: false
+                    isPaymentCollectableWithCardReader = false
                 )
             )
         }
@@ -162,6 +169,15 @@ class OrderDetailViewModel @Inject constructor(
             pluginsInformation = orderDetailRepository.getOrderDetailsPluginsInfo()
         }
         _productList.distinctUntilChanged().observeForever(productListObserver)
+
+        if (navArgs.startPaymentFlow) {
+            triggerEvent(
+                StartPaymentFlow(
+                    orderId = navArgs.orderId,
+                    paymentTypeFlow = CardReaderFlowParam.PaymentOrRefund.Payment.PaymentType.ORDER_CREATION
+                )
+            )
+        }
     }
 
     fun start() {
@@ -322,16 +338,43 @@ class OrderDetailViewModel @Inject constructor(
         it.contains(navArgs.orderId) && it.last() != navArgs.orderId
     } ?: false
 
-    fun onAcceptCardPresentPaymentClicked() {
-        cardReaderTracker.trackCollectPaymentTapped()
-        triggerEvent(StartPaymentFlow(orderId = order.id))
+    fun onCollectPaymentClicked() {
+        paymentsFlowTracker.trackCollectPaymentTapped()
+        triggerEvent(
+            StartPaymentFlow(
+                orderId = order.id,
+                paymentTypeFlow = CardReaderFlowParam.PaymentOrRefund.Payment.PaymentType.ORDER
+            )
+        )
     }
 
     fun onSeeReceiptClicked() {
-        tracker.trackReceiptViewTapped(order.id, order.status)
-        loadReceiptUrl()?.let {
-            triggerEvent(PreviewReceipt(order.billingAddress.email, it, order.id))
-        } ?: WooLog.e(T.ORDERS, "ReceiptUrl is null, but SeeReceipt button is visible")
+        launch {
+            tracker.trackReceiptViewTapped(order.id, order.status)
+
+            viewState = viewState.copy(
+                orderInfo = viewState.orderInfo?.copy(
+                    receiptButtonStatus = OrderDetailViewState.ReceiptButtonStatus.Loading
+                )
+            )
+
+            val receiptResult = paymentReceiptHelper.getReceiptUrl(order.id)
+
+            viewState = viewState.copy(
+                orderInfo = viewState.orderInfo?.copy(
+                    receiptButtonStatus = OrderDetailViewState.ReceiptButtonStatus.Visible
+                )
+            )
+
+            if (receiptResult.isSuccess) {
+                triggerEvent(PreviewReceipt(order.billingAddress.email, receiptResult.getOrThrow(), order.id))
+            } else {
+                paymentsFlowTracker.trackReceiptUrlFetchingFails(
+                    errorDescription = receiptResult.exceptionOrNull()?.message ?: "Unknown error",
+                )
+                triggerEvent(ShowSnackbar(string.receipt_fetching_error))
+            }
+        }
     }
 
     fun onPrintingInstructionsClicked() {
@@ -355,12 +398,6 @@ class OrderDetailViewModel @Inject constructor(
     fun onOrderEditFailed(@StringRes message: Int) {
         reloadOrderDetails()
         triggerEvent(ShowSnackbar(message))
-    }
-
-    private fun loadReceiptUrl(): String? {
-        return selectedSite.getIfExists()?.let {
-            appPrefs.getReceiptUrl(it.id, it.siteId, it.selfHostedSiteId, order.id)
-        }
     }
 
     fun onViewRefundedProductsClicked() {
@@ -565,7 +602,11 @@ class OrderDetailViewModel @Inject constructor(
             orderInfo = OrderDetailViewState.OrderInfo(
                 order = order,
                 isPaymentCollectableWithCardReader = isPaymentCollectable,
-                isReceiptButtonsVisible = !loadReceiptUrl().isNullOrEmpty()
+                receiptButtonStatus = if (paymentReceiptHelper.isReceiptAvailable(order.id) && order.isOrderPaid) {
+                    OrderDetailViewState.ReceiptButtonStatus.Visible
+                } else {
+                    OrderDetailViewState.ReceiptButtonStatus.Hidden
+                }
             ),
             orderStatus = orderStatus,
             toolbarTitle = resourceProvider.getString(

@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Translation-Revision-Date: 2023-12-14 11:54:04+0000
+Translation-Revision-Date: 2024-02-14 11:54:04+0000
 Plural-Forms: nplurals=1; plural=0;
 Generator: GlotPress/2.4.0-alpha
 Language: zh_TW
 -->
 <resources>
+    <string name="see_report">查看報告</string>
+    <string name="blaze_campaign_edit_ad_destination_site_url_option">網站首頁</string>
+    <string name="blaze_campaign_edit_ad_destination_product_url_option">商品 URL</string>
+    <string name="blaze_campaign_edit_ad_destination_parameters_property_title">URL 參數</string>
+    <string name="blaze_campaign_edit_ad_destination_url_property_title">目的地 URL</string>
+    <string name="blaze_campaign_edit_ad_destination_empty_parameters_message">手動輸入</string>
+    <string name="blaze_campaign_creation_location_search_failed_message">找不到地點。\n請再試一次。</string>
+    <string name="blaze_campaign_creation_location_search_message">立即輸入國家/地區、州或城市，查看可用選項</string>
+    <string name="blaze_campaign_payment_summary_terms_and_conditions">按一下「提交行銷活動」即表示你同意&lt;a href=\'termsOfService\'&gt;&lt;u&gt;服務條款&lt;/u&gt;&lt;/a&gt;和&lt;a href=\'advertisingPolicy\'&gt;&lt;u&gt;廣告政策&lt;/u&gt;&lt;/a&gt;，並授權我們根據你選擇的預算和時間長度向你的付款方式扣款。 &lt;a href=\'learnMore\'&gt;&lt;u&gt;深入了解&lt;/u&gt;&lt;/a&gt;推廣文章的預算和付款運作方式。</string>
+    <string name="blaze_campaign_payment_summary_submit_campaign">提交行銷活動</string>
+    <string name="blaze_campaign_payment_summary_error_loading_payment_methods">付款方式載入失敗，請按一下此處重試！</string>
+    <string name="blaze_campaign_payment_summary_add_payment_method">新增付款方式</string>
+    <string name="blaze_campaign_payment_summary_loading_payment_methods">正在載入付款方式</string>
+    <string name="blaze_campaign_payment_summary_total_budget">總計</string>
+    <string name="blaze_campaign_payment_summary_campaign_budget">Blaze 行銷活動</string>
+    <string name="blaze_campaign_payment_summary_totals">付款總金額</string>
+    <string name="blaze_campaign_payment_summary_title">付款</string>
+    <string name="blaze_campaign_preview_target_location_search_hint">搜尋地點</string>
+    <string name="card_reader_payment_receipt_can_not_be_stored">無法儲存收據</string>
+    <string name="card_reader_payment_receipt_can_not_be_downloaded">無法下載收據</string>
+    <string name="card_reader_payment_email_client_not_found">無法偵測任何可分享收據的應用程式</string>
+    <string name="receipt_fetching_error">很抱歉，我們無法載入此訂單的收據</string>
+    <string name="blaze_campaign_edit_ad_suggested_by_ai">由 AI 建議</string>
+    <string name="blaze_campaign_edit_ad_characters_remaining">剩餘 %d 個字元</string>
+    <string name="blaze_campaign_edit_ad_change_description_title">描述</string>
+    <string name="blaze_campaign_edit_ad_change_tagline_title">標語</string>
+    <string name="blaze_campaign_edit_ad_change_image_button">變更圖片</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_apply_button">套用</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_starts">開始時間</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_duration">%1$s 天</string>
+    <string name="blaze_campaign_budget_duration_bottom_sheet_title">設定期間</string>
+    <string name="blaze_campaign_budget_impressions_info">曝光數反映了廣告向潛在顧客顯示的頻率。\n\n\n        因為線上流量和使用者行為會波動，無法確定確切數字，但我們會致力讓廣告的實際曝光數盡可能符合你的目標次數。\n\n\n        切記，曝光數與能見度有關，而非觀眾採取的行動。</string>
+    <string name="blaze_campaign_budget_impressions_done_button">完成</string>
+    <string name="blaze_campaign_budget_impressions_title">曝光數</string>
+    <string name="blaze_campaign_budget_update_button">更新</string>
+    <string name="blaze_campaign_budget_edit_duration_button">編輯</string>
+    <string name="blaze_campaign_budget_duration_section_title">時間長度</string>
+    <string name="blaze_campaign_budget_reach_forecast">預估每天觸及的人數</string>
+    <string name="blaze_campaign_budget_daily_spend">每日 %1$s</string>
+    <string name="blaze_campaign_budget_days_duration">%1$s 天</string>
+    <string name="blaze_campaign_budget_total_spend">總預算</string>
+    <string name="blaze_campaign_budget_subtitle">你打算在商品推廣行銷活動上花費多少預算？</string>
+    <string name="blaze_campaign_budget_toolbar_title">設定預算</string>
+    <string name="blaze_campaign_preview_target_default_value">全部</string>
+    <string name="blaze_campaign_preview_days_duration">從 %2$s起共 %1$s 天</string>
+    <string name="product_creation_survey_button_dont_show_again">不要再顯示</string>
+    <string name="product_creation_survey_button_remind_me_later">稍後再提醒我</string>
+    <string name="product_creation_survey_description">有空嗎？ 簡短的意見回饋就能幫助我們改善 AI 輔助功能。</string>
+    <string name="blaze_campaign_preview_details_confirm_details_button">確認詳細資料</string>
+    <string name="blaze_campaign_preview_details_destination_url">廣告目的地</string>
+    <string name="blaze_campaign_preview_details_interests">興趣</string>
+    <string name="blaze_campaign_preview_details_location">地點</string>
+    <string name="blaze_campaign_preview_details_devices">裝置</string>
+    <string name="blaze_campaign_preview_details_language">語言</string>
+    <string name="blaze_campaign_preview_details_budget">預算</string>
+    <string name="blaze_campaign_preview_details_section_title">詳細資料</string>
+    <string name="blaze_campaign_preview_shop_now_button">立即選購</string>
+    <string name="blaze_campaign_preview_edit_ad">編輯廣告</string>
+    <string name="blaze_campaign_screen_fragment_title">預覽</string>
+    <string name="disabled">殘障人士</string>
+    <string name="order_configuration_product_selection_control">商品選擇</string>
+    <string name="order_configuration_product_selection">選擇商品 %s</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_5">&lt;b&gt;上線：&lt;/b&gt;在行銷活動開始時予以觀察並追蹤是否成功。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_4">&lt;b&gt;快速審查：&lt;/b&gt;提交你的廣告供審核員進行快速檢查。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_3">&lt;b&gt;設定預算：&lt;/b&gt;決定預算與行銷活動長度。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_2">&lt;b&gt;自訂目標：&lt;/b&gt;按地點或興趣選取觀眾，並檢視潛在觸及對象。</string>
+    <string name="blaze_campaign_creation_new_intro_learn_item_1">&lt;b&gt;選擇商品：&lt;/b&gt;選擇要透過 Blaze 推廣的商品。</string>
+    <string name="scan_to_update_inventory_manage_stock">管理庫存</string>
+    <string name="scan_to_update_inventory_stock_not_managed">未管理庫存</string>
+    <string name="blaze_campaign_creation_new_intro_learn_more">瞭解 Blaze 的運作方式</string>
+    <string name="blaze_campaign_creation_new_intro_start_button">著手展開行銷活動</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_subtitle">你的廣告會出現在 WordPress.com 與 Tumblr 網路中的數百萬個網站。</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_3_title">觸及廣大受眾</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_subtitle">「我們的工具會讓感興趣的消費者找到你的產品。」</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_2_title">輕鬆觸及全球受眾</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_subtitle">就算沒有經驗或高額預算，也只需幾分鐘即可發布廣告，費用 5 美元起。</string>
+    <string name="blaze_campaign_creation_new_intro_benefit_1_title">快速起步，效應非凡</string>
+    <string name="blaze_campaign_creation_new_intro_description">我們的工具可為商店提供快速簡單的廣告行銷活動設定，助你衝刺最佳流量表現。</string>
+    <string name="blaze_campaign_creation_product_selector_cta_button">宣傳</string>
+    <string name="blaze_campaign_creation_product_selector_title">準備展開宣傳</string>
+    <string name="blaze_campaign_creation_new_intro_title">讓數百萬使用者看見你的產品</string>
+    <string name="theme_preview_activate_theme_button_settings">使用 %1$s</string>
+    <string name="theme_preview_activate_theme_button_store_creation">透過 %1$s 開始</string>
+    <string name="store_creation_installation_async_dialog_switch_store">切換商店</string>
+    <string name="store_creation_installation_async_dialog_message">你想要立即著手管理嗎？</string>
+    <string name="store_creation_installation_async_dialog_title">你的新商店已準備就緒</string>
+    <string name="card_reader_hub_deposit_funds_deposits_title">上次存款</string>
+    <string name="order_creation_expand_collapse_order_totals">展開收合的訂單總額</string>
+    <string name="order_creation_collect_payment_button">收取款項</string>
+    <string name="order_creation_gift_card_text_error">序號必須採用 XXXX-XXXX-XXXX-XXXX 格式。</string>
+    <string name="order_creation_gift_card_text_field_hint">輸入序號</string>
+    <string name="order_creation_coupon_button">優惠券</string>
+    <string name="theme_picker_error_message">無法載入佈景主題。</string>
+    <string name="configuration_complete">設定完成</string>
+    <string name="scan_to_update_inventory_undo_snackbar">已復原更新數量</string>
+    <string name="theme_picker_loading_current_theme_failed">無法載入目前的佈景主題</string>
+    <string name="theme_preview_type_desktop">桌上型電腦</string>
+    <string name="theme_preview_type_tablet">平板電腦</string>
+    <string name="theme_preview_type_mobile">行動裝置</string>
+    <string name="theme_picker_carousel_error_placeholder_message_cta">點選這裡</string>
+    <string name="theme_picker_carousel_error_placeholder_message">抱歉，看來在載入範本時發生問題。 如需即時示範，請%1$s。</string>
+    <string name="theme_picker_carousel_info_item_description_settings">歡迎前往 WooCommerce 佈景主題商店，尋找最適合的佈景主題。</string>
+    <string name="theme_picker_current_theme_title">目前的佈景主題</string>
+    <string name="theme_picker_settings_title">嘗試新的外觀</string>
+    <string name="product_creation_survey_button_open">開始進行調查</string>
+    <string name="product_creation_survey_title">我們很重視你的意見！</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">若你啟用親自收款功能，可以讓顧客在到貨時以現金或卡片支付線上訂單款項。\n\n即使不啟用這項功能，你仍可手動建立訂單。</string>
+    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">你想將親自收款新增至網頁結帳功能嗎？</string>
+    <string name="card_reader_onboarding_contact_us">需要協助嗎？ &lt;a href=\'\'&gt;聯絡我們&lt;/a&gt;</string>
+    <string name="order_refunds_refund_custom_amount">退款自訂金額</string>
+    <string name="order_refunds_custom_amount_refund">自訂金額退款</string>
+    <string name="barcode_scanning_scan_product_barcode_label">掃瞄產品條碼</string>
+    <string name="order_creation_add_gift_card">新增禮物卡</string>
     <string name="scan_to_update_inventory_product_label">產品</string>
     <string name="scan_to_update_inventory_quantity_label">數量</string>
     <string name="scan_to_update_inventory_original_quantity_label">原始數量</string>
@@ -36,10 +149,7 @@ Language: zh_TW
     <string name="custom_amounts_bottom_sheet_heading">你想要如何新增自訂金額？</string>
     <string name="custom_amounts_percentage_label">訂單總計的百分比 (%1$s)</string>
     <string name="custom_amounts_delete_custom_amount">刪除自訂金額</string>
-    <string name="store_creation_use_theme_button">開始使用此佈景主題</string>
     <string name="theme_activated_successfully">已成功啟用佈景主題</string>
-    <string name="theme_preview_theme_name">佈景主題：%1$s</string>
-    <string name="theme_preview_activate_theme_button">使用此佈景主題</string>
     <string name="theme_preview_bottom_sheet_home_section">首頁</string>
     <string name="theme_preview_bottom_sheet_pages_subtitle">點選以檢視</string>
     <string name="theme_preview_bottom_sheet_pages_title">此範本上的頁面</string>
@@ -83,7 +193,7 @@ Language: zh_TW
     <string name="configuration_quantity_between"> %1$s 至 %2$s 個項目 </string>
     <string name="configuration_quantity_item_plural">%d 個項目</string>
     <string name="configuration_quantity_item">%d 個項目</string>
-    <string name="order_configuration_change_product_quantity">將產品數量從 %1$f 變更為 %2$f</string>
+    <string name="order_configuration_change_product_quantity">將商品數量從 %1$.2f 變更為 %2$.2f</string>
     <string name="save_configuration">儲存設定</string>
     <string name="product_configuration_title">設定</string>
     <string name="default_product_title">產品 %s</string>
@@ -118,12 +228,7 @@ Language: zh_TW
     <string name="card_reader_hub_deposit_summary_collapse_expand_content_description">收合/展開存款摘要</string>
     <string name="card_reader_hub_deposit_summary_learn_more">深入瞭解何時會收到款項</string>
     <string name="card_reader_hub_deposit_summary_available_deposit_time_monthly">可用款項將自動於每月 %s存入。</string>
-    <string name="card_reader_hub_deposit_summary_last">上一個</string>
-    <string name="card_reader_hub_deposit_summary_next">下一個</string>
-    <string name="card_reader_hub_deposit_funds_deposits_title">存款</string>
     <string name="card_reader_hub_deposit_summary_funds_available_after_one">待確認款項 %d 天後即可使用。</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_one">存款：%d</string>
-    <string name="card_reader_hub_deposit_summary_pending_deposits_plural">存款：%d</string>
     <string name="card_reader_hub_deposit_summary_pending_funds">待確認款項</string>
     <string name="card_reader_hub_deposit_summary_available_funds">可用款項</string>
     <string name="order_creation_payment_tax_label">稅金</string>
@@ -1114,8 +1219,6 @@ Language: zh_TW
     <string name="login_site_picker_try_another_address">嘗試其他地址</string>
     <string name="card_reader_onboarding_cash_on_delivery_enable_failure">無法啟用貨到付款。 請稍後再試一次。</string>
     <string name="card_reader_onboarding_cash_on_delivery_disabled_button">啟用親自收款</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_hint">結帳畫面的「親自收款」選項可讓你在收貨或貨到時接受卡片或現金付款。</string>
-    <string name="card_reader_onboarding_cash_on_delivery_disabled_error_header">將「親自收款」功能新增至結帳畫面</string>
     <string name="card_reader_connect_learn_more">&lt;a href=\'\'&gt;深入瞭解&lt;/a&gt;親自收款功能</string>
     <string name="login_site_picker_new_to_woo">第一次使用 WooCommerce</string>
     <string name="site_discovery_postlogin_failure">發生錯誤，請聯絡支援團隊</string>
@@ -1876,7 +1979,6 @@ Language: zh_TW
     <string name="variable_product_attributes">款式屬性</string>
     <string name="card_reader_detail_not_connected_third_hint_label">開啟行動裝置的藍牙</string>
     <string name="card_reader_refetching_order_failed">擷取訂單時發生錯誤。 應用程式中的訂單狀態可能已過期。</string>
-    <string name="card_reader_payment_email_client_not_found">無法偵測電子郵件用戶端應用程式</string>
     <string name="card_reader_payment_receipt_email_subject">你的 %s 收據</string>
     <string name="card_reader_payment_fetch_order_loading_payment_state">正在重新整理訂單</string>
     <string name="card_reader_payment_fetch_order_loading_header">正在更新應用程式狀態</string>

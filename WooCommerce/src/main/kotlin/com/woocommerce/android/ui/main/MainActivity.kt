@@ -49,7 +49,6 @@ import com.woocommerce.android.analytics.AnalyticsTracker
 import com.woocommerce.android.databinding.ActivityMainBinding
 import com.woocommerce.android.extensions.active
 import com.woocommerce.android.extensions.collapse
-import com.woocommerce.android.extensions.exhaustive
 import com.woocommerce.android.extensions.expand
 import com.woocommerce.android.extensions.hide
 import com.woocommerce.android.extensions.navigateSafely
@@ -102,6 +101,7 @@ import com.woocommerce.android.ui.plans.di.TrialStatusBarFormatterFactory
 import com.woocommerce.android.ui.plans.trial.DetermineTrialStatusBarState.TrialStatusBarState
 import com.woocommerce.android.ui.prefs.AppSettingsActivity
 import com.woocommerce.android.ui.prefs.RequestedAnalyticsValue
+import com.woocommerce.android.ui.products.ProductDetailFragment
 import com.woocommerce.android.ui.products.ProductListFragmentDirections
 import com.woocommerce.android.ui.reviews.ReviewListFragmentDirections
 import com.woocommerce.android.util.ChromeCustomTabUtils
@@ -209,7 +209,7 @@ class MainActivity :
 
             when (val appBarStatus = (f as? BaseFragment)?.activityAppBarStatus ?: AppBarStatus.Visible()) {
                 is AppBarStatus.Visible -> {
-                    showToolbar(f is TopLevelFragment)
+                    showToolbar(animate = f is TopLevelFragment)
                     // re-expand the AppBar when returning to top level fragment,
                     // collapse it when entering a child fragment
                     if (f is TopLevelFragment) {
@@ -234,7 +234,7 @@ class MainActivity :
                     binding.appBarDivider.isVisible = appBarStatus.hasDivider
                 }
 
-                AppBarStatus.Hidden -> hideToolbar()
+                AppBarStatus.Hidden -> hideToolbar(animate = f is TopLevelFragment)
             }
 
             if (f is TopLevelFragment) {
@@ -328,6 +328,7 @@ class MainActivity :
             }
         )
     }
+
     override fun hideProgressDialog() {
         progressDialog?.apply {
             if (isShowing) {
@@ -486,6 +487,9 @@ class MainActivity :
     }
 
     private fun showToolbar(animate: Boolean) {
+        // Cancel any pending toolbar animations
+        animatorHelper.cancelToolbarAnimation()
+
         if (binding.collapsingToolbar.layoutParams.height == animatorHelper.toolbarHeight) return
         if (animate) {
             animatorHelper.animateToolbarHeight(show = true) {
@@ -500,11 +504,20 @@ class MainActivity :
         }
     }
 
-    private fun hideToolbar() {
+    private fun hideToolbar(animate: Boolean) {
+        // Cancel any pending toolbar animations
+        animatorHelper.cancelToolbarAnimation()
+
         if (binding.collapsingToolbar.layoutParams.height == 0) return
-        animatorHelper.animateToolbarHeight(show = false) {
+        if (animate) {
+            animatorHelper.animateToolbarHeight(show = false) {
+                binding.collapsingToolbar.updateLayoutParams {
+                    height = it
+                }
+            }
+        } else {
             binding.collapsingToolbar.updateLayoutParams {
-                height = it
+                height = 0
             }
         }
     }
@@ -852,7 +865,7 @@ class MainActivity :
                 is UnseenReviews -> binding.bottomNav.showMoreMenuUnseenReviewsBadge(moreMenuBadgeState.count)
                 NewFeature -> binding.bottomNav.showMoreMenuNewFeatureBadge()
                 Hidden -> binding.bottomNav.hideMoreMenuBadge()
-            }.exhaustive
+            }
         }
     }
 
@@ -934,7 +947,7 @@ class MainActivity :
 
     override fun showProductDetail(remoteProductId: Long, enableTrash: Boolean) {
         val action = NavGraphMainDirections.actionGlobalProductDetailFragment(
-            remoteProductId = remoteProductId,
+            mode = ProductDetailFragment.Mode.ShowProduct(remoteProductId),
             isTrashEnabled = enableTrash
         )
         navController.navigateSafely(action)
@@ -945,7 +958,7 @@ class MainActivity :
         val extras = FragmentNavigatorExtras(sharedView to productCardDetailTransitionName)
 
         val action = NavGraphMainDirections.actionGlobalProductDetailFragment(
-            remoteProductId = remoteProductId,
+            mode = ProductDetailFragment.Mode.ShowProduct(remoteProductId),
             isTrashEnabled = enableTrash
         )
         navController.navigateSafely(directions = action, extras = extras)
@@ -962,7 +975,7 @@ class MainActivity :
     override fun showAddProduct(imageUris: List<String>) {
         showBottomNav()
         val action = NavGraphMainDirections.actionGlobalProductDetailFragment(
-            isAddProduct = true,
+            mode = ProductDetailFragment.Mode.AddNewProduct,
             images = imageUris.toTypedArray()
         )
         navController.navigateSafely(action)

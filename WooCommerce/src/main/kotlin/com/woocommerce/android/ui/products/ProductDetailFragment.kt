@@ -10,11 +10,14 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +46,8 @@ import com.woocommerce.android.model.Product.Image
 import com.woocommerce.android.ui.aztec.AztecEditorFragment
 import com.woocommerce.android.ui.aztec.AztecEditorFragment.Companion.ARG_AZTEC_EDITOR_TEXT
 import com.woocommerce.android.ui.aztec.AztecEditorFragment.Companion.ARG_AZTEC_TITLE_FROM_AI_DESCRIPTION
+import com.woocommerce.android.ui.blaze.BlazeUrlsHelper.BlazeFlowSource
+import com.woocommerce.android.ui.blaze.creation.BlazeCampaignCreationDispatcher
 import com.woocommerce.android.ui.compose.theme.WooThemeWithBackground
 import com.woocommerce.android.ui.dialog.WooDialog
 import com.woocommerce.android.ui.main.AppBarStatus
@@ -55,6 +60,7 @@ import com.woocommerce.android.ui.products.ProductDetailViewModel.OpenProductDet
 import com.woocommerce.android.ui.products.ProductDetailViewModel.RefreshMenu
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ShowAIProductDescriptionBottomSheet
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ShowAiProductCreationSurveyBottomSheet
+import com.woocommerce.android.ui.products.ProductDetailViewModel.ShowBlazeCreationScreen
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ShowDuplicateProductError
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ShowDuplicateProductInProgress
 import com.woocommerce.android.ui.products.ProductDetailViewModel.ShowLinkedProductPromoBanner
@@ -82,6 +88,8 @@ import com.woocommerce.android.widgets.CustomProgressDialog
 import com.woocommerce.android.widgets.SkeletonView
 import com.woocommerce.android.widgets.WCProductImageGalleryView.OnGalleryImageInteractionListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import kotlinx.parcelize.Parcelize
 import org.wordpress.android.util.ActivityUtils
 import javax.inject.Inject
 
@@ -106,6 +114,9 @@ class ProductDetailFragment :
 
     private var productId: Long = ProductDetailViewModel.DEFAULT_ADD_NEW_PRODUCT_ID
 
+    @Inject
+    lateinit var blazeCampaignCreationDispatcher: BlazeCampaignCreationDispatcher
+
     private val skeletonView = SkeletonView()
 
     private var progressDialog: CustomProgressDialog? = null
@@ -118,7 +129,7 @@ class ProductDetailFragment :
 
     override val activityAppBarStatus: AppBarStatus
         get() {
-            val navigationIcon = if (findNavController().backQueue.any { it.destination.id == R.id.products }) {
+            val navigationIcon = if (findNavController().hasBackStackEntry(R.id.products)) {
                 R.drawable.ic_back_24dp
             } else {
                 R.drawable.ic_gridicons_cross_24dp
@@ -127,6 +138,10 @@ class ProductDetailFragment :
                 navigationIcon = navigationIcon
             )
         }
+
+    private fun NavController.hasBackStackEntry(@IdRes destinationId: Int) = runCatching {
+        getBackStackEntry(destinationId)
+    }.isSuccess
 
     @Inject lateinit var crashLogging: CrashLogging
 
@@ -145,6 +160,8 @@ class ProductDetailFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        blazeCampaignCreationDispatcher.attachFragment(this, BlazeFlowSource.PRODUCT_DETAIL_PROMOTE_BUTTON)
 
         _binding = FragmentProductDetailBinding.bind(view)
         requireActivity().addMenuProvider(this, viewLifecycleOwner)
@@ -358,6 +375,7 @@ class ProductDetailFragment :
                 is OpenProductDetails -> openProductDetails(event.productRemoteId)
                 is ShowDuplicateProductError -> showDuplicateProductError()
                 is NavigateToBlazeWebView -> openBlazeWebView(event)
+                is ShowBlazeCreationScreen -> openBlazeCreationFlow(event.productId)
                 is ShowDuplicateProductInProgress -> showProgressDialog(
                     R.string.product_duplicate_progress_title,
                     R.string.product_duplicate_progress_body
@@ -387,6 +405,15 @@ class ProductDetailFragment :
                 description?.fastStripHtml()
             )
         )
+    }
+
+    private fun openBlazeCreationFlow(productId: Long) {
+        lifecycleScope.launch {
+            blazeCampaignCreationDispatcher.startCampaignCreation(
+                source = BlazeFlowSource.PRODUCT_DETAIL_PROMOTE_BUTTON,
+                productId = productId
+            )
+        }
     }
 
     private fun openBlazeWebView(event: NavigateToBlazeWebView) {
@@ -654,4 +681,16 @@ class ProductDetailFragment :
     }
 
     override fun getFragmentTitle(): String = productName
+
+    @Parcelize
+    sealed class Mode : Parcelable {
+        @Parcelize
+        data object Loading : Mode()
+
+        @Parcelize
+        data class ShowProduct(val remoteProductId: Long) : Mode()
+
+        @Parcelize
+        data object AddNewProduct : Mode()
+    }
 }

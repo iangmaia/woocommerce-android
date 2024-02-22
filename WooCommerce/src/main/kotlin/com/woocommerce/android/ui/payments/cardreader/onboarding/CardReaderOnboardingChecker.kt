@@ -13,8 +13,6 @@ import com.woocommerce.android.extensions.semverCompareTo
 import com.woocommerce.android.tools.NetworkStatus
 import com.woocommerce.android.tools.SelectedSite
 import com.woocommerce.android.ui.payments.cardreader.CardReaderCountryConfigProvider
-import com.woocommerce.android.ui.payments.cardreader.CardReaderTracker
-import com.woocommerce.android.ui.payments.cardreader.CardReaderTrackingInfoKeeper
 import com.woocommerce.android.ui.payments.cardreader.CashOnDeliverySettingsRepository
 import com.woocommerce.android.ui.payments.cardreader.onboarding.CardReaderOnboardingState.CashOnDeliveryDisabled
 import com.woocommerce.android.ui.payments.cardreader.onboarding.CardReaderOnboardingState.ChoosePaymentGatewayProvider
@@ -35,6 +33,8 @@ import com.woocommerce.android.ui.payments.cardreader.onboarding.CardReaderOnboa
 import com.woocommerce.android.ui.payments.cardreader.onboarding.CardReaderOnboardingState.WcpayNotInstalled
 import com.woocommerce.android.ui.payments.cardreader.onboarding.PluginType.STRIPE_EXTENSION_GATEWAY
 import com.woocommerce.android.ui.payments.cardreader.onboarding.PluginType.WOOCOMMERCE_PAYMENTS
+import com.woocommerce.android.ui.payments.tracking.CardReaderTrackingInfoKeeper
+import com.woocommerce.android.ui.payments.tracking.PaymentsFlowTracker
 import com.woocommerce.android.util.CoroutineDispatchers
 import com.woocommerce.android.util.WooLog
 import kotlinx.coroutines.withContext
@@ -53,8 +53,6 @@ import org.wordpress.android.fluxc.store.WCInPersonPaymentsStore
 import org.wordpress.android.fluxc.store.WCInPersonPaymentsStore.InPersonPaymentsPluginType
 import org.wordpress.android.fluxc.store.WooCommerceStore
 import javax.inject.Inject
-
-const val WCPAY_RECEIPTS_SENDING_SUPPORT_VERSION = "4.0.0"
 
 /**
  * This class is used to check if the selected store is ready to accept In Person Payments. The app should check store's
@@ -77,7 +75,7 @@ class CardReaderOnboardingChecker @Inject constructor(
     private val cardReaderCountryConfigProvider: CardReaderCountryConfigProvider,
     private val cashOnDeliverySettingsRepository: CashOnDeliverySettingsRepository,
     private val cardReaderOnboardingCheckResultCache: CardReaderOnboardingCheckResultCache,
-    private val cardReaderTracker: CardReaderTracker,
+    private val paymentsFlowTracker: PaymentsFlowTracker,
 ) {
     suspend fun getOnboardingState(pluginType: PluginType? = null): CardReaderOnboardingState {
         val cachedValue = cardReaderOnboardingCheckResultCache.value
@@ -110,7 +108,7 @@ class CardReaderOnboardingChecker @Inject constructor(
                     )
                 }
         }.also {
-            cardReaderTracker.trackOnboardingState(it)
+            paymentsFlowTracker.trackOnboardingState(it)
         }
     }
 

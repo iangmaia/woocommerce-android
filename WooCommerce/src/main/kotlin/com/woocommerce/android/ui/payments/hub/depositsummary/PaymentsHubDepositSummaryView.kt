@@ -17,7 +17,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.animation.with
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -138,7 +138,7 @@ fun PaymentsHubDepositSummaryView(
             .fillMaxWidth()
             .background(colorResource(id = R.color.color_surface))
     ) {
-        val pagerState = rememberPagerState(initialPage = selectedPage)
+        val pagerState = rememberPagerState(initialPage = selectedPage) { pageCount }
         val isInitialLoad = remember { mutableStateOf(true) }
 
         val currencies = overview.infoPerCurrency.keys.toList()
@@ -164,7 +164,6 @@ fun PaymentsHubDepositSummaryView(
         }
 
         HorizontalPager(
-            pageCount = pageCount,
             state = pagerState
         ) { pageIndex ->
             Column(
@@ -558,11 +557,11 @@ private fun FundsNumber(
             targetState = valueToDisplay to valueAmount,
             transitionSpec = {
                 if (animationPlayed) {
-                    EnterTransition.None with ExitTransition.None
+                    EnterTransition.None togetherWith ExitTransition.None
                 } else if (targetState.second > initialState.second) {
-                    slideInVertically { -it } with slideOutVertically { it }
+                    slideInVertically { -it } togetherWith slideOutVertically { it }
                 } else {
-                    slideInVertically { it } with slideOutVertically { -it }
+                    slideInVertically { it } togetherWith slideOutVertically { -it }
                 }
             },
             label = "AnimatedFundsNumber"
@@ -617,14 +616,8 @@ private val previewState = sortedMapOf(
         pendingFundsFormatted = "200$",
         availableFundsAmount = 10000,
         pendingFundsAmount = 20000,
-        pendingBalanceDepositsCount = 1,
         fundsAvailableInDays = 5,
         fundsDepositInterval = PaymentsHubDepositSummaryState.Info.Interval.Daily,
-        nextDeposit = PaymentsHubDepositSummaryState.Deposit(
-            amount = "100$",
-            status = PaymentsHubDepositSummaryState.Deposit.Status.ESTIMATED,
-            date = "13 Oct 2023"
-        ),
         lastDeposit = PaymentsHubDepositSummaryState.Deposit(
             amount = "100$",
             status = PaymentsHubDepositSummaryState.Deposit.Status.FAILED,
@@ -636,14 +629,8 @@ private val previewState = sortedMapOf(
         pendingFundsFormatted = "200$",
         availableFundsAmount = 10000,
         pendingFundsAmount = 20000,
-        pendingBalanceDepositsCount = 1,
         fundsAvailableInDays = 2,
         fundsDepositInterval = PaymentsHubDepositSummaryState.Info.Interval.Weekly("Friday"),
-        nextDeposit = PaymentsHubDepositSummaryState.Deposit(
-            amount = "100$",
-            status = PaymentsHubDepositSummaryState.Deposit.Status.PAID,
-            date = "13 Oct 2023"
-        ),
         lastDeposit = PaymentsHubDepositSummaryState.Deposit(
             amount = "100$",
             status = PaymentsHubDepositSummaryState.Deposit.Status.PENDING,
@@ -655,14 +642,8 @@ private val previewState = sortedMapOf(
         pendingFundsFormatted = "200$",
         availableFundsAmount = 10000,
         pendingFundsAmount = 20000,
-        pendingBalanceDepositsCount = 1,
         fundsAvailableInDays = 4,
         fundsDepositInterval = PaymentsHubDepositSummaryState.Info.Interval.Weekly("Monday"),
-        nextDeposit = PaymentsHubDepositSummaryState.Deposit(
-            amount = "100$",
-            status = PaymentsHubDepositSummaryState.Deposit.Status.IN_TRANSIT,
-            date = "13 Oct 2023"
-        ),
         lastDeposit = PaymentsHubDepositSummaryState.Deposit(
             amount = "100$",
             status = PaymentsHubDepositSummaryState.Deposit.Status.CANCELED,
@@ -674,14 +655,8 @@ private val previewState = sortedMapOf(
         pendingFundsFormatted = "200$",
         availableFundsAmount = 10000,
         pendingFundsAmount = 20000,
-        pendingBalanceDepositsCount = 1,
         fundsAvailableInDays = 3,
         fundsDepositInterval = PaymentsHubDepositSummaryState.Info.Interval.Weekly("Tuesday"),
-        nextDeposit = PaymentsHubDepositSummaryState.Deposit(
-            amount = "100$",
-            status = PaymentsHubDepositSummaryState.Deposit.Status.UNKNOWN,
-            date = "13 Oct 2023"
-        ),
         lastDeposit = PaymentsHubDepositSummaryState.Deposit(
             amount = "100$",
             status = PaymentsHubDepositSummaryState.Deposit.Status.ESTIMATED,
@@ -784,10 +759,8 @@ fun PaymentsHubDepositSummaryViewNoDepositsPreview() {
                         pendingFundsFormatted = "200$",
                         availableFundsAmount = 10000,
                         pendingFundsAmount = 20000,
-                        pendingBalanceDepositsCount = 1,
                         fundsAvailableInDays = 5,
                         fundsDepositInterval = PaymentsHubDepositSummaryState.Info.Interval.Daily,
-                        nextDeposit = null,
                         lastDeposit = null,
                     )
                 )
